@@ -28,7 +28,7 @@ def main():
     current_sensor = ACS712(34, scale_factor=48)
     connect_wifi(SSID, PASSWORD)
     mqtt_client = MQTT()
-    current_sensor.calibrateSensorFast()
+    current_sensor.calibrateSensor()
     while True:
         current = current_sensor.readCurrent()
         display_current(current)
