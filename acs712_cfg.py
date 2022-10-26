@@ -29,7 +29,9 @@ class ACS712:
         """
         print("Calibrating sensor...")
         print("Please disconnect the sensor from the load and press enter.")
-        input()
+        for i in reversed(range(5)):
+            print("Starting calibration in " + str(i) + " seconds...")
+            utime.sleep(1)
         print("Measuring...")
         now = utime.time()
         averageVoltage = 0

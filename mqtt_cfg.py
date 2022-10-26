@@ -1,6 +1,7 @@
 from umqttsimple import MQTTClient
 import ubinascii
 import machine
+import utime
 
 SERVER_IP = '192.168.1.200'
 MOSQUITTO_USER = b'pi'
@@ -13,6 +14,7 @@ class MQTT:
         self.user = user
         self.password = password
         self.mqtt = None
+        self.broker_acknowledged = False
         self.connect()
     
     def connect(self):
@@ -28,3 +30,15 @@ class MQTT:
     def publish(self, topic, message):
         self.mqtt.publish(topic, message)
         print('Published to topic ' + topic + ': ' + message)
+
+    def subscribe(self, topic):
+        self.mqtt.subscribe(topic)
+        print('Subscribed to topic ' + topic)
+        
+
+    def publish_clientID(self):
+        self.subscribe(self.client_id.decode("utf-8") + '/ack')
+        while self.broker_acknowledged == False:
+            self.mqtt.check_msg()
+            self.publish('clientID/broker', self.client_id.decode("utf-8"))
+            utime.sleep(1)
