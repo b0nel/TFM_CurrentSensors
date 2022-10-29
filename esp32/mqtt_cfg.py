@@ -2,6 +2,7 @@ from umqttsimple import MQTTClient
 import ubinascii
 import machine
 import utime
+import os
 
 SERVER_IP = '192.168.1.200'
 MOSQUITTO_USER = b'pi'
@@ -15,7 +16,6 @@ class MQTT:
         self.password = password
         self.mqtt = None
         self.broker_acknowledged = False
-        self.connect()
     
     def connect(self):
         self.mqtt = MQTTClient(self.client_id, self.server_ip, user=self.user, password=self.password)
@@ -23,6 +23,7 @@ class MQTT:
             self.mqtt.connect()
         except:
             print('Could not connect to MQTT broker')
+            utime.sleep(1)
             print('Trying to connect again. Reseting the device...')
             machine.reset()
         print('Connected to MQTT broker ' + self.server_ip)
@@ -42,3 +43,14 @@ class MQTT:
             self.mqtt.check_msg()
             self.publish('clientID/broker', self.client_id.decode("utf-8"))
             utime.sleep(1)
+    
+    def is_broker_acknowledged(self,):
+        for file in os.listdir():
+            if file == 'broker_acknowledged.txt':
+                with open('broker_acknowledged.txt', 'r') as file:
+                    return file.read() == 'True'
+        return False
+
+    def set_broker_acknowledged(self, value):
+        with open('broker_acknowledged.txt', 'w') as file:
+            file.write(str(value))
