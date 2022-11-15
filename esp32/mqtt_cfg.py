@@ -8,6 +8,7 @@ SERVER_IP = '192.168.1.200'
 MOSQUITTO_USER = b'pi'
 MOSQUITTO_PASS = b'nairda'
 
+
 class MQTT:
     def __init__(self, server_ip=SERVER_IP, user=MOSQUITTO_USER, password=MOSQUITTO_PASS):
         self.server_ip = server_ip
@@ -16,6 +17,7 @@ class MQTT:
         self.password = password
         self.mqtt = None
         self.broker_acknowledged = False
+        self.sensor_configured = False
     
     def connect(self):
         self.mqtt = MQTTClient(self.client_id, self.server_ip, user=self.user, password=self.password)
@@ -36,6 +38,8 @@ class MQTT:
         self.mqtt.subscribe(topic)
         print('Subscribed to topic ' + topic)
         
+    def check_msg(self):
+        self.mqtt.check_msg()
 
     def publish_clientID(self):
         self.subscribe(self.client_id.decode("utf-8") + '/ack')
@@ -46,11 +50,23 @@ class MQTT:
     
     def is_broker_acknowledged(self,):
         for file in os.listdir():
-            if file == 'broker_acknowledged.txt':
-                with open('broker_acknowledged.txt', 'r') as file:
+            if file == 'broker_acknowledged.cfg':
+                with open('broker_acknowledged.cfg', 'r') as file:
                     return file.read() == 'True'
         return False
 
     def set_broker_acknowledged(self, value):
-        with open('broker_acknowledged.txt', 'w') as file:
+        with open('broker_acknowledged.cfg', 'w') as file:
             file.write(str(value))
+
+    def get_sensor_config_from_broker(self):
+        """
+        This function is called when the sensor is not configured yet.
+        It subscribes to the topic 'sensor_config' and waits for a message
+        from the server. If the message is 'AC', the sensor is configured
+        as AC. If the message is 'DC', the sensor is configured as DC.
+        """
+        self.subscribe(self.client_id.decode("utf-8") + '/sensor_config')
+        while self.sensor_configured == False:
+            self.mqtt.check_msg()
+            utime.sleep(1)

@@ -1,11 +1,8 @@
 import requests
 import json
-"""
-if response.status_code == 200:
-    json_data = json.loads(response.text)
-    for franja, datos in json_data.items():
-        print("En la franja horaria " + franja + " el precio es de " + str(datos["price"] / 1000) + " euros por kWh")
-"""
+import datetime
+import schedule
+import time
 
 class CostElectricity:
     """
@@ -23,6 +20,7 @@ class CostElectricity:
         self.max_data       = self.get_url_data(self.url_max)
         self.min_data       = self.get_url_data(self.url_min)
         self.current_data   = self.get_url_data(self.url_current)
+        self.schedule_data_update()
 
     
     def get_url_data(self, url):
@@ -30,6 +28,7 @@ class CostElectricity:
         if response.status_code == 200:
             return json.loads(response.text)
         else:
+            print("Error getting data from " + url)
             return None
     
     def load_complete_data(self):
@@ -47,12 +46,29 @@ class CostElectricity:
     def load_current_data(self):
         self.current_data = self.get_url_data(self.url_current)
 
+    def update_everything(self):
+        now = datetime.datetime.now()
+        print("Updating data at " + str(now.time()))
+        self.load_complete_data()
+        self.load_average_data()
+        self.load_max_data()
+        self.load_min_data()
+        self.load_current_data()
+
     """ Returns a list of the n cheapest prices in the day """
     def get_eco_price(self, n):
         return self.get_url_data(self.url_eco + str(n))
     
+    def schedule_data_update(self):
+        schedule.every(1).minutes.do(self.update_everything)
+
+
+        
+
+
 def main():
     cost_electricity = CostElectricity()
+
     for franja, datos in cost_electricity.complete_data.items():
         print("En la franja horaria " + franja + " el precio es de " + str(datos["price"] / 1000) + " euros por kWh")
     print("El precio actual es de " + str(cost_electricity.current_data["price"] / 1000) + " euros por kWh")
@@ -62,5 +78,11 @@ def main():
     print("Los 5 precios más económicos son:")
     for franja in cost_electricity.get_eco_price(5):
         print(str(franja["price"] / 1000) + " euros por kWh en la franja horaria " + franja["hour"])
+    
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
+
+
 if __name__ == '__main__':
     main()

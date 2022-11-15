@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>List of sensors</title>
+  </head>
+  <body>
+    <p>Sensors connected to broker:</p>
+    <ul>
+    {% for sensor in sensors %}
+        <li><a href="{{ url_for('sensor', sensorid=sensor) }}">{{ sensor }}</a></li>
+    {% endfor %}
+    </ul>
+  </body>
+</html>
