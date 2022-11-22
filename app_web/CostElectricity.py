@@ -1,10 +1,8 @@
 import requests
 import json
-import datetime
-import schedule
-import time
 
-class CostElectricity:
+
+class costElectricity:
     """
     Class to get the price of electricity in Spain
     """
@@ -15,12 +13,11 @@ class CostElectricity:
         self.url_min        = 'https://api.preciodelaluz.org/v1/prices/min?zone=PCB'
         self.url_current    = 'https://api.preciodelaluz.org/v1/prices/now?zone=PCB'
         self.url_eco        = 'https://api.preciodelaluz.org/v1/prices/cheapests?zone=PCB&n='
-        self.complete_data  = self.get_url_data(self.url_complete)
-        self.average_data   = self.get_url_data(self.url_average)
-        self.max_data       = self.get_url_data(self.url_max)
-        self.min_data       = self.get_url_data(self.url_min)
-        self.current_data   = self.get_url_data(self.url_current)
-        self.schedule_data_update()
+        self.complete_data  = None
+        self.average_data   = None
+        self.max_data       = None
+        self.min_data       = None
+        self.current_data   = None
 
     
     def get_url_data(self, url):
@@ -28,9 +25,10 @@ class CostElectricity:
         if response.status_code == 200:
             return json.loads(response.text)
         else:
-            print("Error getting data from " + url)
+            print("Error  getting data from " + url)
             return None
-    
+
+
     def load_complete_data(self):
         self.complete_data = self.get_url_data(self.url_complete)
 
@@ -47,8 +45,6 @@ class CostElectricity:
         self.current_data = self.get_url_data(self.url_current)
 
     def update_everything(self):
-        now = datetime.datetime.now()
-        print("Updating data at " + str(now.time()))
         self.load_complete_data()
         self.load_average_data()
         self.load_max_data()
@@ -58,17 +54,13 @@ class CostElectricity:
     """ Returns a list of the n cheapest prices in the day """
     def get_eco_price(self, n):
         return self.get_url_data(self.url_eco + str(n))
-    
-    def schedule_data_update(self):
-        schedule.every(1).minutes.do(self.update_everything)
-
 
         
 
 
 def main():
-    cost_electricity = CostElectricity()
-
+    cost_electricity = costElectricity()
+    cost_electricity.update_everything()
     for franja, datos in cost_electricity.complete_data.items():
         print("En la franja horaria " + franja + " el precio es de " + str(datos["price"] / 1000) + " euros por kWh")
     print("El precio actual es de " + str(cost_electricity.current_data["price"] / 1000) + " euros por kWh")
@@ -79,10 +71,5 @@ def main():
     for franja in cost_electricity.get_eco_price(5):
         print(str(franja["price"] / 1000) + " euros por kWh en la franja horaria " + franja["hour"])
     
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
-
-
 if __name__ == '__main__':
     main()

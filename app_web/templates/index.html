@@ -1,0 +1,102 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Sensor information{% endblock %}
+
+{% block styles %}
+{{ super() }}
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+
+  });
+</script>
+{% endblock %}
+
+{% block content %}
+<nav class="navbar navbar-default">
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Show global data</a></li>
+        <li><a href="/add_sensor">Add sensor</a></li>
+        <li><a href="/sensors">List sensors</a></li>
+        </ul>
+      </div>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Global data [TODO]</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Live data graph</h3>
+        </div>
+        <div class="panel-body">
+          <canvas id="liveChart" width="400" height="334"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Consumption</h3>
+        </div>
+        <div class="row">
+          <div class="col-xs-3">
+            <div class="panel-body">
+              <div class="panel panel-info">
+                <div class="panel-heading" style="text-align:center">Watts/h</div>
+                <div id="wattsh_value" class="panel-body" style="text-align:center">--</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-3">
+            <div class="panel-body">
+              <div class="panel panel-info">
+                <div class="panel-heading" style="text-align:center">Cost/h</div>
+                <div id="actual_cost_kwh" class="panel-body" style="text-align:center">--</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-3">
+            <div class="panel-body">
+              <div class="panel panel-info">
+                <div class="panel-heading" style="text-align:center">Price KWh</div>
+                <div id="received_cost"class="panel-body" style="text-align:center">--</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-3">
+            <div class="panel-body">
+              <div class="panel panel-info">
+                <div class="panel-heading">Total cost</div>
+                <div class="panel-body" style="text-align:center">TODO</div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="col-xs-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Live data values</h3>
+      </div>
+      <div class="panel-body">
+        <div class="col-xs-8">
+          <textarea id="received_messages" class="form-control" rows=10></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

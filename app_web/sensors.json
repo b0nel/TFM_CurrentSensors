@@ -1,0 +1,9 @@
+{
+    "c049efccf254": {
+        "sensor_id": "c049efccf254",
+        "sensor_name": "Regleta",
+        "sensor_type": "30A",
+        "voltage": "230",
+        "sensor_location": "Salon"
+    }
+}

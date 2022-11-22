@@ -42,7 +42,7 @@ class MQTT:
         self.mqtt.check_msg()
 
     def publish_clientID(self):
-        self.subscribe(self.client_id.decode("utf-8") + '/ack')
+        self.subscribe('ack/' + self.client_id.decode("utf-8"))
         while self.broker_acknowledged == False:
             self.mqtt.check_msg()
             self.publish('clientID/broker', self.client_id.decode("utf-8"))
@@ -66,7 +66,13 @@ class MQTT:
         from the server. If the message is 'AC', the sensor is configured
         as AC. If the message is 'DC', the sensor is configured as DC.
         """
-        self.subscribe(self.client_id.decode("utf-8") + '/sensor_config')
         while self.sensor_configured == False:
             self.mqtt.check_msg()
             utime.sleep(1)
+        #send ack to sensor_config_ack + id topic for 5 seconds
+        start = utime.time()
+        while utime.time() - start < 5:
+            print('Sending ack to sensor_config_ack/' + self.client_id.decode("utf-8"))
+            self.mqtt.publish('sensor_config_ack/' + self.client_id.decode("utf-8"), 'ack')
+            utime.sleep(0.5)
+        

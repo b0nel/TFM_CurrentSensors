@@ -1,0 +1,293 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Sensor information{% endblock %}
+
+{% block styles %}
+{{ super() }}
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+    var socket = io.connect('http://' + document.domain + ':' + location.port);
+    var message_counter = 0;
+    var ctx = document.getElementById('liveChart');
+
+    var liveChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: [],
+        datasets: [{
+          label: 'Watts',
+          data: [],
+          backgroundColor: [
+            'rgba(102, 255, 153, 1)',
+          ],
+          borderColor: [
+            'rgba(255, 0, 0, 1)',
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+
+    $('#sensor_id').val('{{ data["sensor_id"]}}');
+    $('#sensor_id').prop('readonly', true);
+    $('#sensor_name').val('{{ data["sensor_name"]}}');
+    $('#sensor_name').prop('readonly', true);
+    $('#sensor_location').val('{{ data["sensor_location"]}}');
+    $('#sensor_location').prop('readonly', true);
+    $('#sensor_type_select').hide();
+    $('#sensor_type_input').val('{{ data["sensor_type"]}}');
+    $('#sensor_type_input').prop('readonly', true);
+    $('#voltage_input').val('{{ data["voltage"]}}');
+    $('#voltage_input').prop('readonly', true);
+    $('#voltage_select').hide();
+
+    $('#edit_config').click(function(event) {
+      $('#sensor_id').prop('readonly', false);
+      $('#sensor_name').prop('readonly', false);
+      $('#sensor_location').prop('readonly', false);
+      $('#sensor_type_select').show();
+      $('#sensor_type_input').prop('readonly', false);
+      $('#sensor_type_input').hide();
+      $('#voltage_select').show();
+      $('#voltage_input').prop('readonly', false);
+      $('#voltage_input').hide();
+      $('#edit_config').hide();
+      $('#save_config').show();
+    });
+    $('#save_config').click(function(event) {
+      $('#sensor_id').prop('readonly', true);
+      $('#sensor_name').prop('readonly', true);
+      $('#sensor_location').prop('readonly', true);
+      $('#sensor_type_select').hide();
+      $('#sensor_type_input').prop('readonly', true);
+      $('#sensor_type_input').show();
+      $('#voltage_select').hide();
+      $('#voltage_input').prop('readonly', true);
+      $('#voltage_input').show();
+      $('#edit_config').show();
+      $('#save_config').hide();
+      // Send data to server throgth socket
+
+      // refresh page
+      //location.reload();
+    });
+
+    $('#reset_sensor').click(function(event) {
+      socket.emit('reset_sensor', $('#sensor_id').val());
+    });
+
+    $('#calibrate_sensor').click(function(event) {
+      socket.emit('calibrate_sensor', $('#sensor_id').val());
+    });
+
+    $('#delete_sensor').click(function(event) {
+      if (confirm("Are you sure you want to remove sensor?") == true) {
+        socket.emit('delete_sensor', $('#sensor_id').val());
+        // redirect to home page
+        window.location.href = "/";
+      }
+    });
+
+    socket.on('cost_electricity', function(message) {
+      document.getElementById('received_cost').innerHTML = parseFloat(message["price"]) / 1000;
+    });
+
+    socket.on('mqtt_message', function(message) {
+      console.log(message);
+      if (message['topic'] == ('watts/{{ data["sensor_id"] }}')) {
+        var text = message['payload'];
+        var $textarea = $('#received_messages');
+        
+        if (document.getElementById('received_cost').innerHTML === '--') {
+          document.getElementById('actual_cost_kwh').innerHTML = '--';
+        }
+        else {
+          document.getElementById('actual_cost_kwh').innerHTML = (parseFloat(document.getElementById('received_cost').innerHTML) / 1000) * parseFloat(text);
+        }
+        document.getElementById('wattsh_value').innerHTML = text;
+
+        liveChart.data.labels.push(message['payload']);
+        liveChart.data.datasets.forEach((dataset) => {
+          dataset.data.push(message['payload']);
+        });
+        liveChart.update();
+        if (message_counter > 20) {
+          $textarea.val(text + '\n');
+          message_counter = 0;
+        }
+        else {
+          $textarea.val($textarea.val() + text + '\n');
+        }
+        message_counter += 1;
+      }
+    })
+  });
+</script>
+{% endblock %}
+
+{% block content %}
+<nav class="navbar navbar-default">
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+        <li><a href="/">Show global data</a></li>
+        <li><a href="/add_sensor">Add sensor</a></li>
+        <li class="active"><a href="/sensors">List sensors</a></li>
+        </ul>
+      </div>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Sensor {{ data["sensor_id"] }} </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Live data graph</h3>
+        </div>
+        <div class="panel-body">
+          <canvas id="liveChart" width="400" height="334"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Consumption</h3>
+        </div>
+        <div class="row">
+          <div class="col-xs-3">
+            <div class="panel-body">
+              <div class="panel panel-info">
+                <div class="panel-heading" style="text-align:center">Watts/h</div>
+                <div id="wattsh_value" class="panel-body" style="text-align:center">--</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-3">
+            <div class="panel-body">
+              <div class="panel panel-info">
+                <div class="panel-heading" style="text-align:center">Cost/h</div>
+                <div id="actual_cost_kwh" class="panel-body" style="text-align:center">--</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-3">
+            <div class="panel-body">
+              <div class="panel panel-info">
+                <div class="panel-heading" style="text-align:center">Price KWh</div>
+                <div id="received_cost"class="panel-body" style="text-align:center">--</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-3">
+            <div class="panel-body">
+              <div class="panel panel-info">
+                <div class="panel-heading">Total cost</div>
+                <div class="panel-body" style="text-align:center">TODO</div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="col-xs-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Sensor information</h3>
+      </div>
+      <div class="panel-body">
+        <div class="col-xs-12">
+          <div class="row">
+            <div class="form-horizontal">
+              <div class="form-group">
+                <label class="control-label col-xs-4">Sensor ID:</label>
+                <div class="col-xs-8">
+                  <input id="sensor_id" class="form-control">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-xs-4">Sensor name:</label>
+                <div class="col-xs-8">
+                  <input id="sensor_name" class="form-control">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-xs-4">Sensor type: </label>
+                <div class="col-xs-8">
+                  <input id="sensor_type_input" class="form-control">
+                </div>
+                <div class="col-xs-8">
+                  <select id="sensor_type_select" class="form-control">
+                    <option value="5A">5A</option>
+                    <option value="20A">20A</option>
+                    <option value="30A">30A</option>
+                  </select>
+                </div> 
+              </div>
+              <div class="form-group">
+                <label class="control-label col-xs-4">Load voltage: </label>
+                <div class="col-xs-8">
+                  <input id="voltage_input" class="form-control">
+                </div>
+                <div class="col-xs-8">
+                  <select id="voltage_select" class="form-control">
+                    <option value="12">12</option>
+                    <option value="24">24</option>
+                    <option value="48">48</option>
+                    <option value="220">220</option>
+                    <option value="230">230</option>
+                    <option value="240">240</option>
+                  </select>
+                </div> 
+              </div>
+              <div class="form-group">
+                <label class="control-label col-xs-4">Sensor location:</label>
+                <div class="col-xs-8">
+                  <input id="sensor_location" class="form-control">
+                </div>
+              </div>
+              <div class="form-group">
+                <button id="edit_config" class="btn btn btn-secondary" >Edit</button>
+                <button id="save_config" class="btn btn btn-primary"style="display: none;">Save config</button>
+                <button id="calibrate_sensor" class="btn btn btn-warning">Calibrate</button>
+                <button id="reset_sensor" class="btn btn btn-warning">Reset</button>
+                <button id="delete_sensor" class="btn btn-danger">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Live data values</h3>
+      </div>
+      <div class="panel-body">
+        <div class="col-xs-8">
+          <textarea id="received_messages" class="form-control" rows=10></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
