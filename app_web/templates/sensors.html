@@ -21,8 +21,8 @@
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
         <li><a href="/">Show global data</a></li>
-        <li class="active"><a href="/add_sensor">Add sensor</a></li>
-        <li><a href="/sensors">List sensors</a></li>
+        <li><a href="/add_sensor">Add sensor</a></li>
+        <li class="active"><a href="/sensors">List sensors</a></li>
         </ul>
       </div>
     </ul>
@@ -31,7 +31,7 @@
 <p>Sensors configured:</p>
 <ul>
 {% for sensor, data in sensors.items() %}
-    <li><a href="{{ url_for('sensor', sensor_id=sensor) }}">{{ sensor }}</a></li>
+    <li><a href="{{ url_for('sensor', sensor_id=sensor) }}">{{ data["sensor_name"] }}</a></li>
 {% endfor %}
 </ul>
 {% endblock %}

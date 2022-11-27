@@ -2,7 +2,6 @@ from machine import Pin, ADC
 import utime
 import machine
 import os
-from adc1_cal import ADC1Cal
 import time
 
 # Sensor scale factor for DC current measurement
@@ -59,6 +58,7 @@ class ACS712:
         self.calibration = calibration
         self.referenceVoltage = 0
         self.calibration_factor = calibration_factor
+        self.type = None
     
     def calibrateSensor(self, seconds=10):
         """
@@ -179,8 +179,12 @@ class ACS712:
         accepted_AC_values = ['220', '230', '240']
         accepted_DC_values = ['12', '24', '48']
 
-        if reference_voltage in accepted_AC_values or reference_voltage in accepted_DC_values:
+        if reference_voltage in accepted_AC_values:
             self.referenceVoltage = int(reference_voltage)
+            self.type = 'AC'
+        elif reference_voltage in accepted_DC_values:
+            self.referenceVoltage = int(reference_voltage)
+            self.type = 'DC'
         else:
             self.referenceVoltage = 0
         
@@ -320,21 +324,31 @@ class ACS712:
             Amps_RMS = 0
         else:
             Amps_RMS = (voltage_RMS * 1000) / self.scale_factor
-        if logging:
-            print("[readRMSAmps]Current: ", Amps_RMS, "A")
 
-        return Amps_RMS
+        amps = abs(((voltage - self.default_output_voltage) * 1000) / self.scale_factor)
+        if logging:
+            print("[readRMSAmps]Current: ", Amps_RMS, "A RMS")
+            print("[readRMSAmps]Current: ", amps, "A")
+
+        return Amps_RMS, amps
 
     def getACWatts(self, logging=False):
         """
         Calculate the power consumption in Watts.
         """
-        Amps_RMS = self.readRMSAmps(logging=logging)
-        watts = self.referenceVoltage * Amps_RMS
+        Amps_RMS, amps = self.readRMSAmps(logging=logging)
+        if self.type == "AC":
+            watts = self.referenceVoltage * Amps_RMS
+            ret_amps = Amps_RMS
+        elif self.type  == "DC":
+            watts = self.referenceVoltage * amps
+            ret_amps = amps
+        else:
+            watts = 0
         if logging:
-            print("[getACWatts]Watts: ", watts, "W")
+            print("[getACWatts]Watts: ", watts, "W", "with sensor: ", self.type)
 
-        return watts, Amps_RMS
+        return watts, ret_amps
 
     def calibrateSensorAC(self, seconds=10):
         """

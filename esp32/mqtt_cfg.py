@@ -1,4 +1,4 @@
-from umqttsimple import MQTTClient
+from lib.umqttsimple import MQTTClient
 import ubinascii
 import machine
 import utime

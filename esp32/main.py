@@ -1,14 +1,14 @@
 # importing the required libraries
 import utime
 from acs712_cfg import ACS712
-import ssd1306
+from lib.ssd1306 import SSD1306_I2C
 from machine import Pin, SoftI2C, reset
 from mqtt_cfg import MQTT
 import network
 import os
 
 
-DISPLAY = ssd1306.SSD1306_I2C(128, 32, SoftI2C(sda=Pin(4), scl=Pin(5)))
+DISPLAY = SSD1306_I2C(128, 32, SoftI2C(sda=Pin(4), scl=Pin(5)))
 SSID = 'MOVISTAR_9670'
 PASSWORD = 'LyBfb9Y6Jy9aLtozkPd3'
 
@@ -79,7 +79,7 @@ def btn_handler(pin):
     utime.sleep(2)
     reset()
 
-def main():
+def init():
     #TODO: receive wifi and mqtt settings from a cfg file
     #internal_reset_btn = Pin(22, Pin.IN, Pin.PULL_UP)
     #internal_reset_btn.irq(trigger=Pin.IRQ_RISING, handler=btn_handler)
@@ -109,6 +109,9 @@ def main():
 
     #subscribe to calibrate topic
     MQTT_CLIENT.subscribe('calibrate/' + MQTT_CLIENT.client_id.decode("utf-8"))
+
+def main():
+    init()
 
     while True:
         MQTT_CLIENT.check_msg()

@@ -1,9 +1,7 @@
 #!/bin/bash
-for f in *
-do
-    if [ $f != "update_files.sh" ]
-    then
-        echo "Copying $f file to ESP32"
-        ampy --port /dev/ttyUSB0 -b 115200 put $f
-    fi
-done
+ampy --port /dev/ttyUSB0 put main.py
+ampy --port /dev/ttyUSB0 put acs712_cfg.py
+ampy --port /dev/ttyUSB0 put mqtt_cfg.py
+ampy --port /dev/ttyUSB0 mkdir lib
+ampy --port /dev/ttyUSB0 put lib/umqttsimple.py lib/umqttsimple.py
+ampy --port /dev/ttyUSB0 put lib/ssd1306.py lib/ssd1306.py

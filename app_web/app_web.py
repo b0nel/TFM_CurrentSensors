@@ -57,7 +57,6 @@ class backgroundTask():
 class handleSensors():
     def __init__(self):
         self.JSON_FILE = 'sensors.json'
-        self.list_of_sensors = set()
         self.sensors_data = None
     
     def read_saved_sensors(self):

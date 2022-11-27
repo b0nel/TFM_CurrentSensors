@@ -5,5 +5,12 @@
         "sensor_type": "30A",
         "voltage": "230",
         "sensor_location": "Salon"
+    },
+    "c049efcffb68": {
+        "sensor_id": "c049efcffb68",
+        "sensor_name": "12V power supply",
+        "sensor_type": "5A",
+        "voltage": "12",
+        "sensor_location": "Living room"
     }
 }
