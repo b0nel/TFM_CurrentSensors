@@ -1,0 +1,61 @@
+\begin{titlepage}
+\chapter{Conclusiones}
+En este último capitulo vamos a recopilar todo lo aprendido en el transcurso de este proyecto, vamos a describir las conclusiones sacadas en cada uno de los escenarios en los que hemos podido probar el sistema desarrollado y vamos a hacer una valoración final del proyecto.\\
+\section{Objetivos marcados}
+A continuación voy a describir los objetivos marcados al inicio del proyecto y voy a indicar uno por uno si se han cumplido. Para ello lo voy a dividir en las diferentesd fases en las que fue pensado inicialmente.
+\subsection{Fase 1}
+\begin{enumerate}
+    \item Conocer en profundidad cómo funciona MicroPython
+    \begin{enumerate}
+        \item Conocer las limitaciones de MicroPython. \checkmark
+        \item Escribir varios programas de prueba para familizarizarse con el entorno. \checkmark
+    \end{enumerate}
+    \item Preparar el Esp32 para poder ejecutar MicroPython.
+    \begin{enumerate}
+        \item Borrar flash interna. \checkmark
+        \item Escribir MicroPython firmware en el microcontrolador. \checkmark
+    \end{enumerate}
+    \item Integrar el sensor de corriente ACS712 con el Esp32. 
+    \begin{enumerate}
+        \item Programa que muestre a un LCD o por consola el consumo cada segundo. \checkmark
+        \item Añadir una función para encender o apagar la monitorización del sensor con un botón.\checkmark
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Fase 2}
+\begin{enumerate}
+    \item Configurar la Raspberry Pi como broker MQTT
+    \item Configurar el esp32 como publisher de MQTT.
+    \begin{enumerate}
+        \item Hacer una primera aproximación con un programa que publique el estado (encendido o apagado) de un led. \checkmark
+        \item Integrar MQTT en el programa de la tarea anterior con el sensor de corriente. El esp32 publicará cada segundo los datos del ACS712. \checkmark
+        \item Hacer que el Esp32 sea capaz de recibir órdenes de la raspberry para sustituir el botón de la primera tarea por un comando para apagar o encender la monitorización. \checkmark
+        \item Estudiar la viabilidad de implementar el deep-sleep del esp32 para que no consuma nada mientras no estamos monitorizando. Estudiar las diferentes fuentes disponibles para despertar al esp32.X
+    \end{enumerate}
+    \item Crear aplicación temporal que muestre los datos recibidos de los diferentes publishers por la consola. \checkmark
+\end{enumerate}
+
+
+\subsection{Fase 3}
+\begin{enumerate}
+    \item Diseñar interfaz de la app web. \checkmark
+    \item Mostrar en tiempo real los datos publicados por los sensores en la app web. \checkmark
+\end{enumerate}
+
+
+\section{Trabajo futuro}
+\subsection{Mejoras en el sensor de corriente}
+La primera linea de continuación de este proyecto seria comparar los resultados obtenidos con el ACS712 con otro sensor de corriente como el ZMPT101B. Aunque los resultados obtenidos con el ACS712 en comparación con el amperimetro son bastante buenos, seria interesante compararlos igualmente con otro sensor de corriente.\\
+
+Actualmente, el sistema es tan solo un prototipo que se alimenta por USB. Para poder hacer un sistema mas real, seria necesario añadir una fuente de alimentación\cite{ref24} que convierta los 230V de corriente alterna a 5V de corriente continua.\\
+
+Otra mejora que se podria añadir es la de poder controlar si encender o apagar los dispositivos conectados al sistema remotamente. Para ello, podriamos añadir un relé que se controlase mediante MQTT. Y a su vez, si no estamos alimentando con el rele, podriamos investigar como implementar el deep-sleep del ESP32 para que se quede sin consumir miestras esta en idle.\\
+
+Tal y como se puede leer en el datasheet del ESP32, cuando el WiFi esta encendido, se produce un ruido sobre los ADCs que puede llegar a falsear los datos de medición del consumo electrico. Por ello, seria interesante añadir un ADC externo mas preciso que no se vea afectado por el ruido del WiFi y comparar los resultados para ver si merece la pena usar el ADC externo. \\
+
+Por último, actualmente la configuración del WiFi (SSID y contraseña) y la IP del broker MQTT estan hardcodeados en el codigo. Esto es funcional a nivel de prototipo, pero para un sistema real seria necesario poder configurar estos datos de manera remota. Para ello, se podria añadir que por defecto el ESP32 se pusiera en modo punto de acceso WiFI a la vez que lanzara un servidor web para poder configurar los datos de conexión. \\
+\subsection{Mejoras en la aplicación web}
+Respecto a la aplicación Web, lo principal seria añadir la funcionalidad del panel central que muestre los datos de todos los sensores a la vez. \\
+Otra mejora importante seria añadir el historico de datos. Para ello deberiamos de configurar una base de datos donde guardasemos por ejemplo los datos de las ultimas 24h. De esta manera, al refrescar la pagina no deberiamos observar como perdemos los datos y solo aparecen los nuevos recibimos, si no que podriamos ver una continuación de los datos anteriores. \\
+
+\end{titlepage}
