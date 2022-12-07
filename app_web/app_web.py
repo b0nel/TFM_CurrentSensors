@@ -42,7 +42,7 @@ class backgroundTask():
         while self.sendConfigToSensor:
             logging.info("Running loop to send config to sensor")
             logging.info('Sending config to sensor %s', data['sensor_type'] + ',' + data['voltage'])
-            mqtt.publish('sensor_config/' + data['sensor_id'], data['sensor_type'] + ',' + data['voltage'])
+            mqtt.publish('sensor_config/' + data['sensor_id'], data['sensor_type'] + ',' + data['voltage'] + ',' + data['load_type'])
             socketio.sleep(1)
     
     def update_cost_electricity(self):
@@ -105,7 +105,7 @@ bootstrap = Bootstrap(app)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', sensors=handleSensors.sensors_data)
 
 @app.route('/add_sensor')
 def add_sensor():
@@ -172,6 +172,19 @@ def handle_unsubscribe_sensor_id():
 def handle_connect():
     logging.info("Client connected")
     socketio.start_background_task(backgroundTask.update_cost_electricity)
+
+@socketio.on('power_on')
+def handle_power_on(str):
+    logging.debug("Power on")
+    mqtt.publish('relay/' + str, "on", 0)
+    mqtt.subscribe('watts/' + str)
+
+@socketio.on('power_off')
+def handle_power_off(str):
+    logging.debug("Power off")
+    mqtt.publish('relay/' + str, "off", 0)
+    mqtt.unsubscribe('watts/' + str)
+
 
 
 @mqtt.on_message()

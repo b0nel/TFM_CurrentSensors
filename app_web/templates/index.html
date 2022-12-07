@@ -8,10 +8,113 @@
 {% block scripts %}
 {{ super() }}
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function() {
+    var socket = io.connect('http://' + document.domain + ':' + location.port);
+    var message_counter = 0;
+    var char_counter = 0;
+    var ctx = document.getElementById('liveChart');
+    var timeOut = setTimeout(showOffline, 5000);
+    var datasets = [];
+    var dict_datasets = {};
+    {% for sensor, data in sensors.items() %}
+    datasets.push({
+      label: '{{ sensor }}',
+      data: [],
+      fill: false,
+      borderColor: 'rgba(255, 0, 0, 1)',
+      backgroundColor: random_rgba(),
+      borderWidth: 1
+    });
+    dict_datasets['{{ sensor }}'] = {"index":datasets.length - 1};
+    {% endfor %}
+    var liveChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: [],
+        datasets: datasets
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
 
+    function random_rgba() {
+      var o = Math.round, r = Math.random, s = 255;
+      return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
+    }
+
+    socket.on('cost_electricity', function(message) {
+      document.getElementById('received_cost').innerHTML = parseFloat(message["price"]) / 1000;
+    });
+
+    var intervalId = setInterval(function() {
+      var total_watts = 0;
+      console.log("setInterval")
+      for (const [sensor, data] of Object.entries(dict_datasets)) {
+        liveChart.data.datasets[data["index"]].data.push(data["last_value"]);
+        console.log(data["last_value"] + " " + sensor);
+        total_watts += parseFloat(data["last_value"]);
+      }
+      if (document.getElementById('received_cost').innerHTML === '--') {
+          document.getElementById('actual_cost_kwh').innerHTML = '--';
+      }
+      else {
+        console.log("setting total cost " + total_watts );
+        document.getElementById('actual_cost_kwh').innerHTML = (parseFloat(document.getElementById('received_cost').innerHTML) / 1000) * total_watts;
+      }
+      document.getElementById('wattsh_value').innerHTML = total_watts;
+
+      liveChart.data.labels.push(char_counter);
+      char_counter++;
+      liveChart.update();
+    }, 1000);
+
+    socket.on('mqtt_message', function(message) {
+      if(message['topic'].includes('watts')) {
+        console.log(message);
+        var text = message['topic'] + " " + message['payload'];
+        var $textarea = $('#received_messages');
+        //liveChart.data.labels.push(message['payload']);
+        /*liveChart.data.datasets.forEach((dataset) => {
+          dataset.data.push(message['payload']);
+        });*/
+        sensor_id = message['topic'].split('/')[1];
+        //liveChart.data.datasets[dict_datasets[sensor_id]["index"]].data.push(message['payload']);
+        //liveChart.update();
+        dict_datasets[sensor_id]["last_value"] = message['payload'];
+        if (message_counter > 20) {
+          $textarea.val(text + '\n');
+          message_counter = 0;
+        }
+        else {
+          $textarea.val($textarea.val() + text + '\n');
+        }
+        message_counter += 1;
+      }
+    });
+
+    function showOnline() {
+      $('#connecting').hide();
+      $('#online').show();
+      $('#offline').hide();
+      clearTimeout(timeOut);
+      timeOut = setTimeout(showOffline, 5000);
+      $('#power_status').prop('checked', true);
+    }
+    function showOffline() {
+      $('#connecting').hide();
+      $('#online').hide();
+      $('#offline').show();
+    }
   });
 </script>
 {% endblock %}
@@ -31,7 +134,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-xs-12">
-      <h1>Global data [TODO]</h1>
+      <h1>Global data</h1>
     </div>
   </div>
   <div class="row">

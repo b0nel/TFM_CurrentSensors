@@ -3,6 +3,14 @@
 
 {% block styles %}
 {{ super() }}
+<style>
+  .info{
+      display: none;
+  }
+  .icon:hover ~ .info{
+      display: block;
+  }
+</style>
 {% endblock %}
 
 {% block scripts %}
@@ -12,6 +20,8 @@
   $(document).ready(function() {
     var socket = io.connect('http://' + document.domain + ':' + location.port);
     var search_clicked = false;
+
+    const loadTypeElement = document.getElementById('load_type');
     
     $('#add').click(function(event) {
       console.log("add new sensor clicked");
@@ -19,16 +29,33 @@
       var qos = '0';
       var data_subs = '{"topic": "' + topic + '", "qos": ' + qos + '}';
       socket.emit('subscribe', data=data_subs);
-      var data = '{"sensor_id": "' + $('#sensor_id').val() + '", "sensor_name": "' + $('#sensor_name').val() + '", "sensor_type": "' + $('#sensor_type').val() + '", "voltage": "' + $('#voltage').val() + '", "sensor_location": "' + $('#sensor_location').val() +'"}';
+      var data = '';
+      if ($('#load_type').val() == "DC") {
+        data = '{"sensor_id": "' + $('#sensor_id').val() + '", "sensor_name": "' + $('#sensor_name').val() + '", "sensor_type": "' + $('#sensor_type').val() + '", "voltage": "' + $('#voltage_dc').val() + '", "sensor_location": "' + $('#sensor_location').val() + '", "load_type": "' + $('#load_type').val() +'"}';
+      } else {
+        data = '{"sensor_id": "' + $('#sensor_id').val() + '", "sensor_name": "' + $('#sensor_name').val() + '", "sensor_type": "' + $('#sensor_type').val() + '", "voltage": "' + $('#voltage_ac').val() + '", "sensor_location": "' + $('#sensor_location').val() + '", "load_type": "' + $('#load_type').val() +'"}';
+      }
       socket.emit('submit_sensor', data=data);
       //set every input to read only
       $('#sensor_id').prop('readonly', true);
       $('#sensor_name').prop('readonly', true);
       $('#sensor_type').prop('readonly', true);
-      $('#voltage').prop('readonly', true);
+      $('#voltage_ac').prop('readonly', true);
+      $('#voltage_dc').prop('readonly', true);
       $('#sensor_location').prop('readonly', true);
       $('#adding').show();
       $('#add').hide();
+    });
+
+    loadTypeElement.addEventListener('change', (event) => {
+      console.log("load_type changed");
+      if ($('#load_type').val() == "DC") {
+        $('#voltage_dc').show();
+        $('#voltage_ac').hide();
+      } else {
+        $('#voltage_dc').hide();
+        $('#voltage_ac').show();
+      }
     });
 
     $('#search_id').click(function(event) {
@@ -137,16 +164,27 @@
                   </div> 
                 </div>
                 <div class="form-group">
-                  <label class="control-label col-xs-4">Load voltage: </label>
+                  <label class="control-label col-xs-4">Load type: </label>
                   <div class="col-xs-8">
-                    <select id="voltage" class="form-control">
+                    <select id="load_type" class="form-control">
+                      <option value="AC">AC</option>
+                      <option value="DC">DC</option>
+                    </select>
+                  </div> 
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-xs-4">
+                    Load voltage:
+                    <div class="icon">(info)</div>
+                    <div class="info">If AC selected, enter voltage measured with a voltmeter</div>
+                  </label>
+                  <div class="col-xs-8">
+                    <select id="voltage_dc" class="form-control"style="display: none;">
                       <option value="12">12</option>
                       <option value="24">24</option>
                       <option value="48">48</option>
-                      <option value="220">220</option>
-                      <option value="230">230</option>
-                      <option value="240">240</option>
                     </select>
+                    <input id="voltage_ac" class="form-control">
                   </div> 
                 </div>
                 <div class="form-group">

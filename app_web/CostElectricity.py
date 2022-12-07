@@ -26,7 +26,7 @@ class costElectricity:
             return json.loads(response.text)
         else:
             print("Error  getting data from " + url)
-            return None
+            return self.current_data
 
 
     def load_complete_data(self):

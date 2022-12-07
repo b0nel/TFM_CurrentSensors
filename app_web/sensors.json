@@ -3,14 +3,8 @@
         "sensor_id": "c049efccf254",
         "sensor_name": "Regleta",
         "sensor_type": "30A",
-        "voltage": "230",
-        "sensor_location": "Salon"
-    },
-    "c049efcffb68": {
-        "sensor_id": "c049efcffb68",
-        "sensor_name": "12V power supply",
-        "sensor_type": "5A",
-        "voltage": "12",
-        "sensor_location": "Living room"
+        "voltage": "223",
+        "sensor_location": "Salon",
+        "load_type": "AC"
     }
 }

@@ -56,7 +56,6 @@ class ACS712:
         #self.adc = ADC1Cal(self.pin, 1, None, 500, "ADC1 Calibrated")
         #self.adc.atten(ADC.ATTN_11DB)  # 3.3V input range
         self.calibration = calibration
-        self.referenceVoltage = 0
         self.calibration_factor = calibration_factor
         self.type = None
     
@@ -154,10 +153,11 @@ class ACS712:
                 with open('sensor_configured.cfg', 'r') as file:
                     stored_value = file.read()
                     try: 
-                        sensor_type, sensor_voltage = stored_value.split(',')
-                        if self.process_sensor_type(sensor_type) and self.process_reference_voltage(sensor_voltage):
-                            print("[is_sensor_configured]Sensor is configured as ", sensor_type, " with ", sensor_voltage, "V")
-                            return True
+                        sensor_type, sensor_voltage, load_type = stored_value.split(',')
+                        self.scale_factor = SCALES_FACTOR[sensor_type]
+                        self.referenceVoltage = float(sensor_voltage)
+                        self.type = load_type
+                        return True
                     except ValueError:
                         print("[is_sensor_configured]Invalid sensor config stored in flash")
                         self.referenceVoltage = 0
@@ -191,18 +191,10 @@ class ACS712:
         return self.referenceVoltage != 0
 
 
-    def set_sensor_config(self, value):
-        try:
-            sensor_type, sensor_voltage = value.split(',')
-            if self.process_sensor_type(sensor_type) and self.process_reference_voltage(sensor_voltage):
-                #save sensor config in flash
-                with open('sensor_configured.cfg', 'w') as file:
-                    file.write(str(value))
-                    print("[set_sensor_config]Sensor configured. Sensor type: ", sensor_type, "Sensor voltage: ", sensor_voltage)
-            else:
-                print("[set_sensor_config]Invalid sensor config received.")
-        except ValueError:
-            print("[set_sensor_config]Invalid sensor config format received.")
+    def set_sensor_config(self, value, load_type, sensor_voltage):
+        self.scale_factor = SCALES_FACTOR[value]
+        self.type = load_type
+        self.referenceVoltage = float(sensor_voltage)
 
     def readSensorVPP(self, logging=False):
         """
@@ -332,33 +324,36 @@ class ACS712:
 
         return Amps_RMS, amps
 
-    def getACWatts(self, logging=False):
+    def getACWatts(self, voltage_from_sensor=0, logging=False):
         """
         Calculate the power consumption in Watts.
         """
         Amps_RMS, amps = self.readRMSAmps(logging=logging)
         if self.type == "AC":
-            watts = self.referenceVoltage * Amps_RMS
-            ret_amps = Amps_RMS
+            if voltage_from_sensor == 0:
+                watts = self.referenceVoltage * Amps_RMS
+                ret_amps = Amps_RMS
+            else:
+                watts = voltage_from_sensor * Amps_RMS
+                ret_amps = Amps_RMS
         elif self.type  == "DC":
             watts = self.referenceVoltage * amps
             ret_amps = amps
         else:
             watts = 0
+            ret_amps = 0
         if logging:
             print("[getACWatts]Watts: ", watts, "W", "with sensor: ", self.type)
 
         return watts, ret_amps
 
-    def calibrateSensorAC(self, seconds=10):
+    def calibrateSensorAC(self, relay, seconds=10):
         """
         Calibrate the sensor to get the average voltage reading when there is no load.
         """
         print("[testCalibrateSensor]Calibrating sensor...")
-        print("[testCalibrateSensor]Please disconnect the sensor from the load NOW!")
-        for i in reversed(range(5)):
-            print("[testCalibrateSensor]Starting calibration in " + str(i+1) + " seconds...")
-            utime.sleep(0.5)
+        print("[testCalibrateSensor]Turning relay OFF...")
+        relay.value(0)
         print("[testCalibrateSensor]Calibrating...")
         counter = 0
         voltage_RMS = 0
