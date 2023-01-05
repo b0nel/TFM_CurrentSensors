@@ -2,7 +2,7 @@
 \chapter{Conclusiones}
 En este último capitulo vamos a recopilar todo lo aprendido en el transcurso de este proyecto, vamos a describir las conclusiones sacadas en cada uno de los escenarios en los que hemos podido probar el sistema desarrollado y vamos a hacer una valoración final del proyecto.\\
 \section{Objetivos marcados}
-A continuación voy a describir los objetivos marcados al inicio del proyecto y voy a indicar uno por uno si se han cumplido. Para ello lo voy a dividir en las diferentesd fases en las que fue pensado inicialmente.
+A continuación voy a describir los objetivos marcados al inicio del proyecto y voy a indicar uno por uno si se han cumplido. Para ello lo voy a dividir en las diferentes fases en las que fue pensado inicialmente.
 \subsection{Fase 1}
 \begin{enumerate}
     \item Conocer en profundidad cómo funciona MicroPython
@@ -48,8 +48,6 @@ A continuación voy a describir los objetivos marcados al inicio del proyecto y 
 La primera linea de continuación de este proyecto seria comparar los resultados obtenidos con el ACS712 con otro sensor de corriente como el ZMPT101B. Aunque los resultados obtenidos con el ACS712 en comparación con el amperimetro son bastante buenos, seria interesante compararlos igualmente con otro sensor de corriente.\\
 
 Actualmente, el sistema es tan solo un prototipo que se alimenta por USB. Para poder hacer un sistema mas real, seria necesario añadir una fuente de alimentación\cite{ref24} que convierta los 230V de corriente alterna a 5V de corriente continua.\\
-
-Otra mejora que se podria añadir es la de poder controlar si encender o apagar los dispositivos conectados al sistema remotamente. Para ello, podriamos añadir un relé que se controlase mediante MQTT. Y a su vez, si no estamos alimentando con el rele, podriamos investigar como implementar el deep-sleep del ESP32 para que se quede sin consumir miestras esta en idle.\\
 
 Tal y como se puede leer en el datasheet del ESP32, cuando el WiFi esta encendido, se produce un ruido sobre los ADCs que puede llegar a falsear los datos de medición del consumo electrico. Por ello, seria interesante añadir un ADC externo mas preciso que no se vea afectado por el ruido del WiFi y comparar los resultados para ver si merece la pena usar el ADC externo. \\
 

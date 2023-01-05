@@ -11,6 +11,7 @@ Como broker MQTT se va a utilizar Mosquitto, que es un broker de código abierto
 
 \section{Setup experimental}
 Lo primero a tener en cuenta es que el sensor ACS712 necesita una tensión de alimentación de 5V y una corriente de 20mA. El pin de salida del sensor es un pin analógico que da una tensión entre 0 y 5V. Si conectaramos este pin directamente a un ADC del ESP32, podriamos llegar a dañar la placa puesto que los ADCs del ESP32 estan diseñados para trabajar con hasta un máximo de 3.3V (a nivel practica es un poco mas de 3.3V). Para evitar esto, se tiene que utilizar un divisor de voltaje que reduzca la tensión de salida del sensor a un valor que pueda leer el ADC. Para ello se ha utilizado una resistencia de 10k y otro de 20k para que el voltaje máximo de salida del sensor sea de 3.3V.\\
+
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.20\textwidth]{imagenes/voltage_divider.png}
@@ -20,6 +21,8 @@ Lo primero a tener en cuenta es que el sensor ACS712 necesita una tensión de al
 El segundo componente a añadir es un filtro pasabajos para eliminar el ruido de la señal. Para ello se ha utilizado un capacitor de 100nF conectado entre el pin de salida del sensor y ground para que la señal pase por el capacitor y se elimine el ruido.\\
 
 Lo siguiente es tener una pantalla LED o LCD para poder mostrar por ahi los datos que se van midiendo del sensor de corriente. Para ello se ha utilizado el modulo SSD1306 de 128x32 pixeles. Este modulo se comunica con el ESP32 mediante el protocolo I2C. Para poder comunicar el ESP32 con el modulo SSD1306 se ha utilizado la libreria de Adafruit para el ESP32 en Micropython.\\
+
+También hemos añadido un relé para apagar o encender el sistema. El relé se conecta a un pin digital del ESP32 y se alimenta a 5V.\\
 
 Por último, queremos disponer de un boton de reset en el ESP32 en caso de que la configuración que guardemos del servidor MQTT cambie y queramos reiniciar la configuración interna. El ESP32 tiene dos botones que vienen en la placa, pero ninguno de ellos se puede cambiar su función por software, por lo que debemos añadir un boton externo conectado a un pin del ESP32. \\
 
@@ -82,7 +85,10 @@ La inicialización del programa empieza por conectarse a la red WiFi y al broker
 	\caption{Diagrama de estados Init}
 \end{figure}
 \subsubsection{Main}
-La función principal es bastante sencilla. En cada iteración, lanzamos una llamada a la libreria de MQTT para comprobar si hay mensajes en la cola recibidos (esto hará que se lance el callback de recepción de mensajes MQTT si es que hay alguno). Lo siguiente es leer el voltaje de salida del sensor de corriente y calcular el amperaje y consumo (en Watts). Estos watios calculados los mostramos por el dispositivo OLED que tenemos conectado. Por último, publicamos el valor del amperaje y consumo en el topic de MQTT correspondiente (watts/ID\_Sensor y amps/ID\_Sensor)
+La función principal es bastante sencilla. En cada iteración, lanzamos una llamada a la libreria de MQTT para comprobar si hay mensajes en la cola recibidos (esto hará que se lance el callback de recepción de mensajes MQTT si es que hay alguno). Si el sensor esta encendido, lo siguiente es leer el voltaje de salida del sensor de corriente y calcular el amperaje y consumo (en Watts). Estos watios calculados los mostramos por el dispositivo OLED que tenemos conectado. Por último, publicamos el valor del amperaje y consumo en el topic de MQTT correspondiente (watts/ID\_Sensor y amps/ID\_Sensor). En caso de que el sensor este apagado, no realizamos ninguna acción y esperamos a recibir el mensaje de encender por MQTT.\\
+
+
+TODO: ACTUALIZAR DIAGRAMA DE ESTADOS CON LA CONDICION DE SENSING O NO SENSING
 
 \begin{figure}[h!]
 	\centering
@@ -109,26 +115,36 @@ MQTT_CLIENT.mqtt.set_callback(subscribe_callback)
 if MQTT_CLIENT.is_broker_acknowledged() == False:
 	MQTT_CLIENT.publish_clientID()
 
+#Init value for relay is always on, i.e, after a reset we want the relay to be on
+RELAY.value(1)
+SENSING = True
+
 #subscribe to reset topic
 MQTT_CLIENT.subscribe('reset/' + MQTT_CLIENT.client_id.decode("utf-8"))
 #subscribe to sensor_config topic to receive the sensor voltage
 MQTT_CLIENT.subscribe('sensor_config/' + MQTT_CLIENT.client_id.decode("utf-8"))
+#subscribe to relay topic to power on/off the devices
+MQTT_CLIENT.subscribe('relay/' + MQTT_CLIENT.client_id.decode("utf-8"))
 
 display_message('Configuring sensor...')
-if CURRENT_SENSOR.is_sensor_configured() == False:
+if CURRENT_SENSOR.is_sensor_configured() == False or VOLTAGE_SENSOR.is_sensor_configured() == False:
 	MQTT_CLIENT.get_sensor_config_from_broker()
 
 #subscribe to restart esp32 topic
 MQTT_CLIENT.subscribe('restart/' + MQTT_CLIENT.client_id.decode("utf-8"))
 
-display_message('Calibrating...')
-CURRENT_SENSOR.calibrateSensorAC()
+display_message('Calibrating amp sensor...')
+CURRENT_SENSOR.calibrateSensorAC(RELAY)
+
+display_message('Calibrating voltage sensor...')
+VOLTAGE_SENSOR.calibration(RELAY)
+
 
 #subscribe to calibrate topic
 MQTT_CLIENT.subscribe('calibrate/' + MQTT_CLIENT.client_id.decode("utf-8"))
 \end{lstlisting}
 
-\subsubsection{Función de calibración del sensor}
+\subsubsection{Función de calibración del sensor de corriente ACS712}
 \begin{lstlisting}[language=python]
 def calibrateSensorAC(self, seconds=10):
 	"""
@@ -188,16 +204,20 @@ init()
 
 while True:
 	MQTT_CLIENT.check_msg()
-	watts, amps = CURRENT_SENSOR.getACWatts(logging=False)
-	display_watts(watts)
-	MQTT_CLIENT.publish('amps/' + 
-		MQTT_CLIENT.client_id.decode("utf-8"), str(amps))
-	MQTT_CLIENT.publish('watts/' + 
-		MQTT_CLIENT.client_id.decode("utf-8"), str(watts))
-	print('-----------------------')
+	if SENSING == True:
+		voltage = VOLTAGE_SENSOR.getVoltage()
+		watts, amps = CURRENT_SENSOR.getACWatts(voltage_from_sensor=voltage, logging=False)
+		display_watts(watts)
+		MQTT_CLIENT.publish('voltage/' + MQTT_CLIENT.client_id.decode("utf-8"), str(voltage))
+		MQTT_CLIENT.publish('amps/' + MQTT_CLIENT.client_id.decode("utf-8"), str(amps))
+		MQTT_CLIENT.publish('watts/' + MQTT_CLIENT.client_id.decode("utf-8"), str(watts))
+		print('-----------------------')
+	else:
+		print("Sensing is disabled")
+		utime.sleep(1)
 \end{lstlisting}
 
-\subsubsection{Funciones de lectura del sensor}
+\subsubsection{Funciones de lectura del sensor de corriente}
 \begin{lstlisting}[language=python]
 def readSensorVPP(self, logging=False):
 	"""
@@ -313,6 +333,144 @@ def getACWatts(self, logging=False):
 
 El codigo completo puede ser consultado en el siguiente enlace\cite{ref23}.\\
 
+
+\section {Voltaje variable}
+\subsection{Problema}
+Hasta ahora, como se ha podido ver, teniamos los valores de voltaje hardcodeados en el código. Esto no es una buena práctica, ya que si queremos cambiar el voltaje de referencia, tendremos que modificar el código aunque hayamos comtemplado los valores estandares en Europa: 210, 220 y 230 voltios para corriente alterna y 12, 24 y 48 para corriente continua. Tal y como tenemos este proyecto, sin modificar el codigo no podriamos usarlo en paises donde la corriente alterna sea de 110 voltios por ejemplo. Por lo tanto, se ha decidido implementar un sensor de voltaje que nos permita leer el voltaje de la red y asi poder usar el valor del voltaje en tiempo real para calcular el consumo de energia.\\
+
+\subsection{Sensor de voltaje}
+Se ha decidido usar el sensor ZMPT101B que es capaz de leer voltajes de 0 a 1000V. Este sensor tiene una salida de 0 a 5V, por lo que no se puede conectar directamente a la entrada analógica del ESP32. Para poder usarlo, se ha usado un divisor de tensión de la misma forma que lo hicimos para el sensor de corriente y asi obtener la señal en un rango de 0 a 3.3V.\\
+
+INSERTAR IMAGEN DEL SENSOR\\
+
+Para obtener el valor del voltaje, haremos uso de una ecuación lineal tomando como puntos de referencia el valor del sensor sin ningun voltaje aplicado y el valor del sensor con un voltaje dado durante la calibración de este (el valor lo obtendremos usando un multimetro y midiendo el voltaje de la red). La ecuación lineal es la siguiente: \\
+\begin{equation}
+	V_{out} = \frac{V_{in} - V_{in,0}}{V_{in,1} - V_{in,0}} \cdot (V_{out,1} - V_{out,0}) + V_{out,0}
+\end{equation}
+Donde $V_{in}$ es el valor de entrada del sensor, $V_{in,0}$ es el valor de entrada del sensor sin ningun voltaje aplicado, $V_{in,1}$ es el valor de entrada del sensor con un voltaje dado durante la calibración de este, $V_{out}$ es el valor de salida del sensor, $V_{out,0}$ es el valor de salida del sensor sin ningun voltaje aplicado y $V_{out,1}$ es el valor de salida del sensor con un voltaje dado durante la calibración de este.\\
+
+\subsection{Actualización del circuito}
+INSERTAR IMAGEN DEL CIRCUITO CON EL NUEVO SENSOR
+
+\subsection{Código}
+\begin{lstlisting}[language=python]
+	import machine
+	import time
+	import os
+	
+	class ZMPT101B:
+		def __init__(self, pin):
+			self.pin = machine.Pin(pin, machine.Pin.IN)
+			self.adc = machine.ADC(self.pin)
+			self.adc.atten(machine.ADC.ATTN_11DB)
+			self.ac_voltage = 0
+			self.no_load_voltage = 0
+			self.load_voltage = 0
+	
+		def set_sensor_config(self, voltage):
+			self.ac_voltage = float(voltage)
+	
+		def is_sensor_configured(self):
+			for file in os.listdir():
+				if file == 'sensor_configured.cfg':
+					with open('sensor_configured.cfg', 'r') as file:
+						stored_value = file.read()
+						try: 
+							_, sensor_voltage, _ = stored_value.split(',')
+							if float(sensor_voltage) > 0:
+								self.ac_voltage = float(sensor_voltage)
+								print("[is_sensor_configured]Voltage sensor max voltage set to ", self.load_voltage)
+								return True
+						except ValueError:
+							print("[is_sensor_configured]Invalid sensor config stored in flash")
+							self.ac_voltage = 0
+							return False
+					break #file found, no need to continue
+	
+			return False #file not found or config invalid
+	
+		def getVPP(self):
+			"""
+			Capture the peak to peak voltage of the current ADC signal.
+			Period of measurement is 50ms. The ADC is sampled every 500us. 100 samples are taken.
+			AC current in spain is 50Hz.
+			We should be able to capture at least 2 full cycles of the sinusoidal signal with its peaks.
+			"""
+			min_value = 4095
+			max_value = 0
+			average_value = 0
+			for i in range(100):
+				adc_raw = self.adc.read()
+				average_value += adc_raw
+				if adc_raw < min_value:
+					min_value = adc_raw
+				elif adc_raw > max_value:
+					max_value = adc_raw
+				time.sleep_us(500)
+			max_value_V = ((max_value * 3.3) / 4095)
+			min_value_V = ((min_value * 3.3) / 4095)
+	
+			return max_value_V, min_value_V
+	
+	
+		def calibration(self, relay, calibration_time=10, input_from_user=False):
+			#first read voltage without load, so turn off relay
+			print("[calibration]Calibrating voltage sensor...")
+			print("[calibration]Turning off relay")
+			relay.value(0)
+			#during calibration_time, get average of max and min value from adc
+			values = []
+			start = time.ticks_ms()
+			while time.ticks_ms() - start < (calibration_time/2) * 1000:
+				max, min = self.getVPP()
+				values.append((max - min) * 0.3536)
+			end = time.ticks_ms()
+			
+			self.no_load_voltage = sum(values) / len(values)
+	
+			print("[calibration]No load voltage: " + str(self.no_load_voltage) + "V in " + str(end - start) + "ms")
+			
+			print("[calibration]Turning on relay")
+			#now, read voltage with load and get input from user
+			relay.value(1)
+			values_load = []
+			start = time.ticks_ms()
+			while time.ticks_ms() - start < (calibration_time/2) * 1000:
+				max, min = self.getVPP()
+				values_load.append((max - min) * 0.3536)
+			end = time.ticks_ms()
+			
+			self.load_voltage = sum(values_load) / len(values_load)
+			print("[calibration]Load voltage: " + str(self.load_voltage) + "V in " + str(end - start) + "ms")
+			if input_from_user:
+				ac_voltage = input("AC voltage measured with multimeter: ")
+				self.ac_voltage = float(ac_voltage)
+				print("[calibration]AC voltage set to " + str(self.ac_voltage) + "V")
+			else:
+				print("[calibration]AC voltage received from app " + str(self.ac_voltage) + "V")
+		
+		def getVoltage(self):
+			"""
+			Use linear equation to get voltage. x1, y1, x2, y2 are the points used to calculate the equation.
+			"""
+			x1 = self.no_load_voltage
+			y1 = 0
+			x2 = self.load_voltage
+			y2 = self.ac_voltage
+			m = (y2 - y1) / (x2 - x1)
+			b = y1 - m * x1
+	
+			values_load = []
+			start = time.ticks_ms()
+			while time.ticks_ms() - start < 1000:
+				max, min = self.getVPP()
+				values_load.append((max - min) * 0.3536)
+			voltage = sum(values_load) / len(values_load)
+			ac_voltage = m * voltage + b
+	
+			return ac_voltage
+\end{lstlisting}
+
 \section{Test de funcionamiento}
 \subsection{Corriente continua}
 Para probar diferente amperajes se ha utilizado una fuente de alimentación que permite variar la corriente de salida entre 0 y 3A. La tensión de la fuente se ha fijado en 12V.\\
@@ -382,6 +540,18 @@ La última prueba la hacemos con el secador de pelo con la función de aire cali
 	\caption{Secador de pelo solo con la función de aire caliente a nivel máximo de calor.}
 \end{figure}
 El ACS712 podemos observar como mide 4.95A y el amperimetro 4.963A.\\
+
+\subsection{Sensor de voltaje}
+Al no disponer de una fuente de alimentación que genere voltaje alterno, lo que voy a probar es el sensor en diferentes redes electricas (en diferentes casas). \\
+\subsubsection{Casa 1}
+
+INSERTAR IMAGEN SENSOR DE VOLTAJE CON MULTIMETRO ENSEÑANDO TMB EL VOLTAJE
+\subsubsection{Casa 2}
+
+\subsubsection{Casa 3}
+
+\subsubsection{Casa 4}
+
 
 \newpage
 \end{titlepage}
