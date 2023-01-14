@@ -6,16 +6,16 @@ A día de hoy, el coste de la electricidad ha aumentado a unos niveles que nadie
 
 Y aquí es donde podemos situar el trabajo de este proyecto. Aunque a día de hoy existen sistemas inteligentes con los que gestionar y monitorizar la energía que se consume en el hogar, normalmente estos dispositivos son independientes unos de otros y no encontramos muchos que recopilen los datos. Estos dispositivos que ya existen en el mercado los analizaremos más adelante. El trabajo de este proyecto, no solo se va a centrar en medir el consumo eléctrico de los dispositivos individualmente, si no que el objetivo será que toda esa información se pueda consultar desde una misma aplicación. \\
 
-En este proyecto se plantea el despliegue de diferentes sistemas embebidos, que se comunicaran con un servidor que recopile toda la información.\\
+En este proyecto se plantea el despliegue de diferentes sistemas embebidos que sean capaces de calcular el consumo energético de los dispositivos conectados y que envíen esos datos por MQTT. Una aplicación web será la encargada de recopilar los datos de todos los dispositivos y de mostrar toda la información posible en relación al consumo energético.\\
 
 \section{Objetivos}
 
 \begin{enumerate}
 \item Estudio de viabilidad de la plataforma de desarrollo. Uso de micropython y estudio de la existencia de librerias para la comunicación inalámbrica por MQTT.
 \item Estudio de los diferentes dispositivos que se pueden utilizar para medir el consumo eléctrico. 
-\item Puesta a punto de raspberry pi para el despliegue de un broker MQTT.
+\item Puesta a punto de Raspberry Pi para el despliegue de un broker MQTT.
 \item Integración de los sensores y dispositivos con la plataforma elegida.
-\item Aplicación web en FLask que permita la visualización de los datos recogidos por los dispositivos en tiempo real.
+\item Aplicación web en Flask que permita la visualización de los datos recogidos por los dispositivos en tiempo real.
 \end{enumerate}
 
 \section{Planificación}
@@ -25,17 +25,30 @@ La planificación inicial y el tiempo estimado a emplear en cada tarea fue el si
 	\includegraphics[width=1\textwidth]{imagenes/gantt_inicial.PNG}
 	\caption{Diagrama de Gantt para la planificación inicial}
 \end{figure}
-Hasta el momento, se han cumplido la mayoria de objetivos planificados, aunque se han tenido que retrasar algunas tareas debido a la falta de tiempo. A continuación se muestra la planificación actualizada:
-Insertar imagen con nueva planificación
+Hasta el momento, se han cumplido la mayoría de objetivos planificados, aunque se han tenido que retrasar algunas tareas debido a la falta de tiempo. A continuación se muestra la planificación actualizada:
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1\textwidth]{imagenes/gantt_final.PNG}
+	\caption{Diagrama de Gantt de la planificación final}
+\end{figure}
+
+\newpage
 \section{Material y métodos}
+
+Para el desarrollo del sistema embebido, se ha utilizado el lenguaje de programación Micropython, que veremos más en detalle más adelante. La aplicación web ha sido desarrollada en python haciendo uso de librerias como Flask.\\
+
+Para la creación de este documento se ha utilizado Texmaker como plataforma de creación y edición de documentos \LaTeX .\\
+
 \subsubsection{Software}
 \begin{itemize}
 	\item Visual Studio Code como IDE de programación.
-	\item Ordenador con Ubuntu como SO.
+	\item Ordenador con Ubuntu como sistema operativo.
 	\item Esptool como herramienta para trabajar con la flash de los ESP32.
-	\item Para la creación de este documento se ha utilizado Texmaker como plataforma de creación y edición de documentos \LaTeX
 	\item Picocom como software para la comunicación por serial.
+	\item Ampy de Adafruit como herramienta para cargar ficheros en los ESP32.
+	\item Tauno serial plotter para la visualización de los datos recibidos por el puerto serie.
+	\item Git para el control de versiones.
 \end{itemize}
 
 \subsubsection{Equipos}
@@ -46,21 +59,22 @@ Insertar imagen con nueva planificación
 	\item x3 sensores de voltaje. 
 	\item x3 pantallas OLED SSD1306.
 	\item x3 cables USB - Micro USB.
-	\item X3 reles.
-	\item Multimetro
+	\item x3 reles.
+	\item Multímetro
 	\item Fuente de alimentación.
 	\item x6 Mini breadboards.
-	\item Otros componentes electronicos.
+	\item Otros componentes electrónicos.
 \end{itemize}
 
 \section{Estructura del documento}
 El documento se divide en 5 capítulos, que se describen a continuación:
 \begin{enumerate}
 \item Capítulo 1. Introducción. En este capítulo se describen los objetivos del proyecto, así como la planificación inicial y la planificación actualizada. También se describen los materiales y métodos utilizados para la realización del proyecto. 
-\item Capítulo 2. Estudio del problema. En este capítulo se describen los diferentes dispositivos que se pueden utilizar para medir el consumo eléctrico. También se describen los diferentes protocolos de comunicación que se pueden utilizar para la comunicación entre los dispositivos y el servidor.
+\item Capítulo 2. Estudio del problema. En este capítulo se describen los diferentes dispositivos que se pueden utilizar para medir el consumo eléctrico. También se describen los diferentes protocolos de comunicación que se pueden utilizar entre los dispositivos y el servidor.
 \item Capítulo 3. Implementación del sistema de monitorización de corriente. En este capítulo se describe la solución final, los materiales utilizados, el setup experimental y la implementación en Micropython.
-\item Capítulo 4. Implementación de la aplicación web. En este capítulo se describe la implementación de la aplicación web en Python usando Flask, SocketIO y MQTT.
-\item Capítulo 5. Conclusiones y trabajo futuro. En este capítulo se describen las conclusiones del proyecto y las posibles mejoras que se podrían realizar en el futuro.
+\item Capítulo 4. Despliegue del broker MQTT. En este capítulo se describe la instalación y configuración del broker MQTT en Raspberry Pi.
+\item Capítulo 5. Implementación de la aplicación web. En este capítulo se describe la implementación de la aplicación web en Python usando Flask, SocketIO y MQTT.
+\item Capítulo 6. Conclusiones y trabajo futuro. En este capítulo se describen las conclusiones del proyecto y las posibles mejoras que se podrían realizar en el futuro.
 \end{enumerate}
 
 \end{titlepage}

@@ -1,39 +1,51 @@
 \babel@toc {spanish}{}\relax 
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Diagrama de Gantt para la planificación inicial}}{2}{figure.1.1}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Diagrama de Gantt de la planificación final}}{3}{figure.1.2}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Contador de luz\cite {contador_img}}}{2}{figure.2.1}%
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Medidor de consumo de energía\cite {medidor_img}}}{3}{figure.2.2}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Medidor de consumo en cuadro electrico\cite {medidor_cuadro_img}}}{4}{figure.2.3}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Monitor de energia inteligente\cite {monitor_inteligente_img}}}{5}{figure.2.4}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Medidor de consumo en cuadro eléctrico\cite {medidor_cuadro_img}}}{4}{figure.2.3}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Monitor de energía inteligente\cite {monitor_inteligente_img}}}{5}{figure.2.4}%
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Forma de una onda Sinusoidal\cite {sine_wave_img}}}{6}{figure.2.5}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Sensor INA219\cite {ina219_img}}}{8}{figure.2.6}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Sensor ZMPT101B\cite {zmpt101b_img}}}{8}{figure.2.7}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Sensor ACS712\cite {acs712_img}}}{9}{figure.2.8}%
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Arduino pin layout\cite {arduino_img}}}{10}{figure.2.9}%
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Raspberry Pi pin layout\cite {rpi_img}}}{10}{figure.2.10}%
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Node MCU ESP8266 pin layout\cite {esp8266_img}}}{11}{figure.2.11}%
-\contentsline {figure}{\numberline {2.12}{\ignorespaces ESP32 pin layout\cite {esp32_img}}}{11}{figure.2.12}%
-\contentsline {figure}{\numberline {2.13}{\ignorespaces Ejemplo de dispositivos comunicados por MQTT\cite {mqtt_img}}}{13}{figure.2.13}%
-\contentsline {figure}{\numberline {2.14}{\ignorespaces Ejemplo de dispositivos comunicados por Zigbee\cite {zigbee_img}}}{14}{figure.2.14}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Ejemplo de uso de la media cuadrática\cite {rms_voltage_equivalent_img}}}{7}{figure.2.6}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Sensor INA219\cite {ina219_img}}}{8}{figure.2.7}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Sensor ZMPT101B\cite {zmpt101b_img}}}{9}{figure.2.8}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Sensor ACS712\cite {acs712_img}}}{9}{figure.2.9}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Arduino pin layout\cite {arduino_img}}}{10}{figure.2.10}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Raspberry Pi pin layout\cite {rpi_img}}}{11}{figure.2.11}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Node MCU ESP8266 pin layout\cite {esp8266_img}}}{11}{figure.2.12}%
+\contentsline {figure}{\numberline {2.13}{\ignorespaces ESP32 pin layout\cite {esp32_img}}}{12}{figure.2.13}%
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Ejemplo de dispositivos comunicados por MQTT\cite {mqtt_img}}}{13}{figure.2.14}%
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Ejemplo de dispositivos comunicados por Zigbee\cite {zigbee_img}}}{14}{figure.2.15}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Divisor de voltaje\cite {voltage_divider_img}}}{2}{figure.3.1}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Setup experimental}}{3}{figure.3.2}%
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Prompt de Micropython}}{4}{figure.3.3}%
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Opciones de Ampy}}{5}{figure.3.4}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Diagrama de estados Init}}{7}{figure.3.5}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Diagrama de estados función Main}}{8}{figure.3.6}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Diagrama de la función de lectura del ACS712}}{9}{figure.3.7}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Salida del ACS712 con corriente continua de 0A}}{14}{figure.3.8}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Salida del ACS712 con corriente continua de 1A}}{14}{figure.3.9}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Salida del ACS712 con corriente continua de 1.7A}}{15}{figure.3.10}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Salida del ACS712 con corriente continua de 3A}}{15}{figure.3.11}%
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Nada conectado al enchufe}}{16}{figure.3.12}%
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Secador de pelo solo con la función de aire frio}}{17}{figure.3.13}%
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Secador de pelo solo con la función de aire caliente a nivel bajo de calor.}}{17}{figure.3.14}%
-\contentsline {figure}{\numberline {3.15}{\ignorespaces Secador de pelo solo con la función de aire caliente a nivel máximo de calor.}}{18}{figure.3.15}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Señal ADC con WiFi apagado (datos en mV)}}{6}{figure.3.5}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Señal ADC con WiFi encendido (datos en mV)}}{6}{figure.3.6}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Diagrama de estados Init}}{8}{figure.3.7}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Diagrama de estados función Main}}{9}{figure.3.8}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Diagrama de la función de lectura del ACS712}}{10}{figure.3.9}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Circuito actualizado}}{16}{figure.3.10}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Salida del sensor sin ajustar}}{17}{figure.3.11}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Salida del sensor calibrado}}{17}{figure.3.12}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Salida del ACS712 con corriente continua de 0A}}{20}{figure.3.13}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Salida del ACS712 con corriente continua de 1A}}{21}{figure.3.14}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Salida del ACS712 con corriente continua de 1.7A}}{22}{figure.3.15}%
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Salida del ACS712 con corriente continua de 3A}}{23}{figure.3.16}%
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Nada conectado al enchufe}}{24}{figure.3.17}%
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Secador de pelo solo con la función de aire frio}}{25}{figure.3.18}%
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Secador de pelo solo con la función de aire caliente a nivel bajo de calor.}}{26}{figure.3.19}%
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Secador de pelo solo con la función de aire caliente a nivel máximo de calor.}}{27}{figure.3.20}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Interfaz para añadir un sensor}}{8}{figure.4.1}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Interfaz para mostrar los sensores añadidos}}{8}{figure.4.2}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Interfaz para mostrar los datos de un sensor}}{9}{figure.4.3}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Interfaz de la aplicación Etcher}}{2}{figure.4.1}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Ejemplo de uso de Mosquitto}}{3}{figure.4.2}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Interfaz principal}}{8}{figure.5.1}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Interfaz para añadir un sensor}}{9}{figure.5.2}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Interfaz para mostrar los sensores añadidos}}{9}{figure.5.3}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Interfaz para mostrar los datos de un sensor}}{10}{figure.5.4}%
+\addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -1,10 +1,18 @@
 {
+    "c049efcffb68": {
+        "sensor_id": "c049efcffb68",
+        "sensor_name": "hjkgb",
+        "sensor_type": "5A",
+        "voltage": "12",
+        "sensor_location": "jghg",
+        "load_type": "DC"
+    },
     "c049efccf254": {
         "sensor_id": "c049efccf254",
         "sensor_name": "Regleta",
         "sensor_type": "30A",
-        "voltage": "223",
-        "sensor_location": "Salon",
+        "voltage": "230",
+        "sensor_location": "SALON",
         "load_type": "AC"
     }
 }

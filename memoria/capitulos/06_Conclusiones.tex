@@ -1,0 +1,68 @@
+\begin{titlepage}
+\chapter{Conclusiones}
+En este último capitulo vamos a recopilar todo lo aprendido en el transcurso de este proyecto, vamos a describir las conclusiones sacadas en cada uno de los escenarios en los que hemos podido probar el sistema desarrollado, vamos a hacer una valoración final del proyecto y a comentar algunas de las lineas de trabajo futuro que pueden permitir mejorar el proyecto.\\
+\section{Objetivos marcados}
+A continuación voy a describir los objetivos marcados al inicio del proyecto y voy a indicar uno por uno si se han cumplido. Para ello lo voy a dividir en las diferentes fases en las que fue pensado inicialmente.
+\subsection{Fase 1}
+\begin{enumerate}
+    \item Conocer en profundidad cómo funciona MicroPython
+    \begin{enumerate}
+        \item Conocer las limitaciones de MicroPython. \checkmark
+        \item Escribir varios programas de prueba para familiarizarse con el entorno. \checkmark
+    \end{enumerate}
+    \item Preparar el Esp32 para poder ejecutar MicroPython.
+    \begin{enumerate}
+        \item Borrar flash interna. \checkmark
+        \item Escribir MicroPython firmware en el microcontrolador. \checkmark
+    \end{enumerate}
+    \item Integrar el sensor de corriente ACS712 con el Esp32. 
+    \begin{enumerate}
+        \item Programa que muestre a un LCD o por consola el consumo cada segundo. \checkmark
+        \item Añadir una función para encender o apagar la monitorización del sensor con un botón.\checkmark
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Fase 2}
+\begin{enumerate}
+    \item Configurar la Raspberry Pi como broker MQTT
+    \item Configurar el esp32 como publisher de MQTT.
+    \begin{enumerate}
+        \item Hacer una primera aproximación con un programa que publique el estado (encendido o apagado) de un led. \checkmark
+        \item Integrar MQTT en el programa de la tarea anterior con el sensor de corriente. El esp32 publicará cada segundo los datos del ACS712. \checkmark
+        \item Hacer que el Esp32 sea capaz de recibir órdenes de la raspberry para sustituir el botón de la primera tarea por un comando para apagar o encender la monitorización. \checkmark
+        \item Estudiar la viabilidad de implementar el deep-sleep del esp32 para que no consuma nada mientras no estamos monitorizando. Estudiar las diferentes fuentes disponibles para despertar al esp32.X
+    \end{enumerate}
+    \item Crear aplicación temporal que muestre los datos recibidos de los diferentes publishers por la consola. \checkmark
+\end{enumerate}
+
+
+\subsection{Fase 3}
+\begin{enumerate}
+    \item Diseñar interfaz de la app web. \checkmark
+    \item Mostrar en tiempo real los datos publicados por los sensores en la app web. \checkmark
+\end{enumerate}
+
+\section{Valoración final}
+En este proyecto, hemos podido comprobar que haciendo uso de MicroPython junto con la plataforma ESP32 podemos crear y desarrollar proyectos de manera muy sencilla, y esto de se debe gracias a herramientas como Esptool o Ampy que nos permiten programar el microcontrolador fácilmente. También, aunque desarrollar un sistema embebido usando un lenguaje de programación de alto nivel como Python pueda resultar la mejor opción, hay que tener en cuenta que el rendimiento de los microcontroladores es bastante limitado, por lo que no siempre es la mejor opción. Además de que la cantidad de información que podemos encontrar en internet cuando buscamos es mucho menor que si lo hubiéramos hecho en C por ejemplo. Por suerte esto no ha sido ningún impedimento a la hora de realizar el proyecto.\\
+
+Respecto al tema principal del proyecto que es el consumo eléctrico, ha sido todo un reto aprender como se transmite la corriente alterna a través de la red eléctrica, y sobretodo como aprender a sacar la información del consumo. También, hemos podido comprobar que el sensor ACS712 es una buena opción para medir el consumo eléctrico de un aparato, ya que es bastante preciso y ademas es muy sencillo de integrar con el ESP32.\\
+
+El desarrollo de la aplicación web ha sido quizás la parte más complicada del proyecto, ya que sin tener experiencia previa en este área hemos tenido que aprender a usar diferentes tecnologías como Flask, HTML, CSS, Javascript, etc. Y no siendo el tema principal del proyecto, quizás hubiera sido mejor haber planteado el proyecto de manera diferente para centrarse totalmente en programación embebida. \\
+
+En cuanto a la comunicación entre los sistemas embebidos y la aplicación web, hemos podido comprobar que MQTT es una buena opción, ya que es un protocolo muy sencillo de implementar tanto en Micropython como en Python haciendo uso de las correspondientes librerías existentes.\\
+
+
+
+\section{Trabajo futuro}
+\subsection{Mejoras en el sensor de corriente}
+La primera linea de continuación de este proyecto seria comparar los resultados obtenidos con el ACS712 con otro sensor de corriente. Aunque los resultados obtenidos con el ACS712 en comparación con el amperímetro son bastante buenos, seria interesante compararlos igualmente con otro sensor de corriente.\\
+
+Actualmente, el sistema es tan solo un prototipo que se alimenta por USB. Para poder hacer un sistema mas real, seria necesario añadir una fuente de alimentación\cite{ref24} que convierta los 230V de corriente alterna a 5V de corriente continua.\\
+
+Tal y como se puede leer en el datasheet del ESP32, cuando el WiFi esta encendido, se produce un ruido sobre los ADCs que puede llegar a falsear los datos de medición del consumo eléctrico. Por ello, seria interesante añadir un ADC externo mas preciso que no se vea afectado por el ruido del WiFi y comparar los resultados para ver si merece la pena usar el ADC externo. \\
+
+Por último, actualmente la configuración del WiFi (SSID y contraseña) y la IP del broker MQTT están hardcodeados en el código. Esto es funcional a nivel de prototipo, pero para un sistema real seria necesario poder configurar estos datos de manera remota. Para ello, se podría añadir que por defecto el ESP32 se pusiera en modo punto de acceso WiFI a la vez que lanzara un servidor web para poder configurar los datos de conexión. \\
+\subsection{Mejoras en la aplicación web}
+Respecto a la aplicación Web, una mejora importante seria añadir el histórico de datos. Para ello deberíamos de configurar una base de datos donde guardásemos por ejemplo los datos de las ultimas 24h. De esta manera, al refrescar la pagina no deberíamos observar como perdemos los datos y solo aparecen los nuevos recibimos, si no que podríamos ver una continuación de los datos anteriores. \\
+
+\end{titlepage}

@@ -3,89 +3,107 @@
 \contentsline {section}{\numberline {1.1}Introducción y motivación}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Objetivos}{2}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Planificación}{2}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Material y métodos}{2}{section.1.4}%
-\contentsline {subsubsection}{Software}{2}{section*.5}%
+\contentsline {section}{\numberline {1.4}Material y métodos}{3}{section.1.4}%
+\contentsline {subsubsection}{Software}{3}{section*.5}%
 \contentsline {subsubsection}{Equipos}{3}{section*.6}%
-\contentsline {section}{\numberline {1.5}Estructura del documento}{3}{section.1.5}%
+\contentsline {section}{\numberline {1.5}Estructura del documento}{4}{section.1.5}%
 \contentsline {chapter}{\numberline {2}Fundamentación teórica}{1}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Consumo energético}{1}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}Consumo energético en el hogar}{1}{subsection.2.1.1}%
 \contentsline {subsubsection}{Contadores inteligentes}{1}{section*.7}%
 \contentsline {subsubsection}{Factura de la luz}{2}{section*.8}%
-\contentsline {subsubsection}{Calculo manual del consumo}{2}{section*.9}%
-\contentsline {subsubsection}{Medidor de consumo electrico individual}{3}{section*.10}%
-\contentsline {subsubsection}{Medidor cuadro electrico}{3}{section*.11}%
+\contentsline {subsubsection}{Cálculo manual del consumo}{2}{section*.9}%
+\contentsline {subsubsection}{Medidor de consumo eléctrico individual}{3}{section*.10}%
+\contentsline {subsubsection}{Medidor cuadro eléctrico}{3}{section*.11}%
 \contentsline {subsubsection}{Monitor inteligente de energia}{4}{section*.12}%
-\contentsline {subsection}{\numberline {2.1.2}Calculo del consumo energético}{5}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.2}Cálculo del consumo energético}{5}{subsection.2.1.2}%
 \contentsline {subsubsection}{Onda sinusoidal}{5}{section*.13}%
 \contentsline {subsubsection}{Factor de potencia}{6}{section*.14}%
 \contentsline {subsubsection}{Media cuadratica (RMS)}{7}{section*.15}%
-\contentsline {subsection}{\numberline {2.1.3}Sensores de consumo energético}{7}{subsection.2.1.3}%
-\contentsline {subsubsection}{INA219}{7}{section*.16}%
+\contentsline {subsection}{\numberline {2.1.3}Sensores de consumo energético}{8}{subsection.2.1.3}%
+\contentsline {subsubsection}{INA219}{8}{section*.16}%
 \contentsline {subsubsection}{ZMPT101B}{8}{section*.17}%
 \contentsline {subsubsection}{ACS712}{9}{section*.18}%
 \contentsline {section}{\numberline {2.2}Plataformas de desarrollo}{9}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Arduino}{9}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.1}Arduino}{10}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}Raspberry Pi}{10}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3} NodeMCU ESP8266}{10}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.3} NodeMCU ESP8266}{11}{subsection.2.2.3}%
 \contentsline {subsection}{\numberline {2.2.4}ESP32}{11}{subsection.2.2.4}%
-\contentsline {section}{\numberline {2.3}Micropython}{11}{section.2.3}%
+\contentsline {section}{\numberline {2.3}Micropython}{12}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Comunicaciones inalámbricas en IoT}{12}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}MQTT}{12}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Zigbee}{13}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.1}MQTT}{13}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Zigbee}{14}{subsection.2.4.2}%
 \contentsline {chapter}{\numberline {3}Implementación del sensor de corriente}{1}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Descripción general}{1}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Setup experimental}{2}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Preparar ESP32 para Micropython}{3}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Micropython en ESP32}{5}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Librerias utilizadas}{6}{subsection.3.2.3}%
-\contentsline {subsubsection}{Libreria para el SSD1306}{6}{section*.19}%
-\contentsline {subsubsection}{Libreria para MQTT}{6}{section*.20}%
-\contentsline {section}{\numberline {3.3}Implementación}{7}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Diagrama de estados}{7}{subsection.3.3.1}%
+\contentsline {section}{\numberline {3.2}Setup experimental}{1}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Preparar ESP32 para Micropython}{2}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Micropython en ESP32}{4}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Librerías utilizadas}{4}{subsection.3.2.3}%
+\contentsline {subsubsection}{Librería para el SSD1306}{4}{section*.19}%
+\contentsline {subsubsection}{Librería para MQTT}{5}{section*.20}%
+\contentsline {section}{\numberline {3.3}Ruido en los ADCs del ESP32}{6}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Problema}{6}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Soluciones}{7}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}Implementación}{7}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Diagrama de estados}{7}{subsection.3.4.1}%
 \contentsline {subsubsection}{Init}{7}{section*.21}%
-\contentsline {subsubsection}{Main}{8}{section*.22}%
+\contentsline {subsubsection}{Main}{7}{section*.22}%
 \contentsline {subsubsection}{Lectura del sensor}{9}{section*.23}%
-\contentsline {subsection}{\numberline {3.3.2}Código}{9}{subsection.3.3.2}%
-\contentsline {subsubsection}{Función Init}{9}{section*.24}%
-\contentsline {subsubsection}{Función de calibración del sensor}{10}{section*.25}%
-\contentsline {subsubsection}{Función Main}{11}{section*.26}%
-\contentsline {subsubsection}{Funciones de lectura del sensor}{11}{section*.27}%
-\contentsline {section}{\numberline {3.4}Test de funcionamiento}{13}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Corriente continua}{13}{subsection.3.4.1}%
-\contentsline {subsubsection}{No load}{14}{section*.28}%
-\contentsline {subsubsection}{1A}{14}{section*.29}%
-\contentsline {subsubsection}{1.7A}{15}{section*.30}%
-\contentsline {subsubsection}{3A}{15}{section*.31}%
-\contentsline {subsection}{\numberline {3.4.2}Corriente alterna}{16}{subsection.3.4.2}%
-\contentsline {subsubsection}{No load}{16}{section*.32}%
-\contentsline {subsubsection}{Secador aire frío}{16}{section*.33}%
-\contentsline {subsubsection}{Secador aire caliente al minimo}{17}{section*.34}%
-\contentsline {subsubsection}{Secador aire caliente al máximo}{17}{section*.35}%
-\contentsline {chapter}{\numberline {4}Implementación de la aplicación web}{1}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Descripción general}{1}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Implementación backend}{1}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Aplicación en python3}{1}{subsection.4.2.1}%
-\contentsline {subsubsection}{Configuración de Flask}{1}{section*.36}%
-\contentsline {subsubsection}{Background tasks}{2}{section*.37}%
-\contentsline {subsubsection}{Clase para gestionar los sensores}{3}{section*.38}%
-\contentsline {subsubsection}{Funciones de la APP FLask}{3}{section*.39}%
-\contentsline {subsubsection}{Llamadas a socketio}{4}{section*.40}%
-\contentsline {subsubsection}{Funciones de MQTT}{5}{section*.41}%
-\contentsline {subsubsection}{Clase para obtener precio KWh}{6}{section*.42}%
-\contentsline {subsubsection}{Inicialización de la aplicación}{7}{section*.43}%
-\contentsline {section}{\numberline {4.3}Implementación frontend}{7}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Diseño}{7}{subsection.4.3.1}%
-\contentsline {subsubsection}{Añadir sensor}{7}{section*.44}%
-\contentsline {subsubsection}{Mostrar sensores}{8}{section*.45}%
-\contentsline {subsubsection}{Mostrar datos de un sensor}{9}{section*.46}%
-\contentsline {subsection}{\numberline {4.3.2}Implementación}{9}{subsection.4.3.2}%
-\contentsline {chapter}{\numberline {5}Conclusiones}{1}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Objetivos marcados}{1}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Fase 1}{1}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Fase 2}{2}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}Fase 3}{2}{subsection.5.1.3}%
-\contentsline {section}{\numberline {5.2}Trabajo futuro}{3}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Mejoras en el sensor de corriente}{3}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Mejoras en la aplicación web}{4}{subsection.5.2.2}%
-\contentsline {subsubsection}{Imágenes}{6}{section*.48}%
+\contentsline {subsection}{\numberline {3.4.2}Código}{10}{subsection.3.4.2}%
+\contentsline {subsubsection}{Función Init}{10}{section*.24}%
+\contentsline {subsubsection}{Función de calibración del sensor de corriente ACS712}{11}{section*.25}%
+\contentsline {subsubsection}{Función Main}{12}{section*.26}%
+\contentsline {subsubsection}{Funciones de lectura del sensor de corriente}{13}{section*.27}%
+\contentsline {section}{\numberline {3.5}Voltaje variable}{15}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Problema}{15}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Sensor de voltaje}{15}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Actualización del circuito}{16}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.4}Calibración del sensor}{16}{subsection.3.5.4}%
+\contentsline {subsection}{\numberline {3.5.5}Código}{18}{subsection.3.5.5}%
+\contentsline {section}{\numberline {3.6}Test de funcionamiento}{20}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Corriente continua}{20}{subsection.3.6.1}%
+\contentsline {subsubsection}{No load}{20}{section*.28}%
+\contentsline {subsubsection}{1A}{21}{section*.29}%
+\contentsline {subsubsection}{1.7A}{21}{section*.30}%
+\contentsline {subsubsection}{3A}{22}{section*.31}%
+\contentsline {subsection}{\numberline {3.6.2}Corriente alterna}{23}{subsection.3.6.2}%
+\contentsline {subsubsection}{No load}{23}{section*.32}%
+\contentsline {subsubsection}{Secador aire frío}{24}{section*.33}%
+\contentsline {subsubsection}{Secador aire caliente al minimo}{25}{section*.34}%
+\contentsline {subsubsection}{Secador aire caliente al máximo}{26}{section*.35}%
+\contentsline {chapter}{\numberline {4}Despliegue del broker MQTT}{1}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Instalación del sistema operativo}{1}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Instalación y configuración del broker}{2}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Probando Mosquitto}{2}{subsection.4.2.1}%
+\contentsline {subsubsection}{Suscribirse a un topic}{3}{section*.36}%
+\contentsline {subsubsection}{Publicar a un topic}{3}{section*.37}%
+\contentsline {chapter}{\numberline {5}Implementación de la aplicación web}{1}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Descripción general}{1}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Implementación backend}{1}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Aplicación en python3}{1}{subsection.5.2.1}%
+\contentsline {subsubsection}{Configuración de Flask}{1}{section*.38}%
+\contentsline {subsubsection}{Background tasks}{2}{section*.39}%
+\contentsline {subsubsection}{Clase para gestionar los sensores}{3}{section*.40}%
+\contentsline {subsubsection}{Funciones de la APP FLask}{3}{section*.41}%
+\contentsline {subsubsection}{Llamadas a socketio}{4}{section*.42}%
+\contentsline {subsubsection}{Funciones de MQTT}{5}{section*.43}%
+\contentsline {subsubsection}{Clase para obtener precio KWh}{6}{section*.44}%
+\contentsline {subsubsection}{Inicialización de la aplicación}{7}{section*.45}%
+\contentsline {section}{\numberline {5.3}Implementación frontend}{8}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Diseño}{8}{subsection.5.3.1}%
+\contentsline {subsubsection}{Página princial}{8}{section*.46}%
+\contentsline {subsubsection}{Añadir sensor}{8}{section*.47}%
+\contentsline {subsubsection}{Mostrar sensores}{9}{section*.48}%
+\contentsline {subsubsection}{Mostrar datos de un sensor}{10}{section*.49}%
+\contentsline {subsection}{\numberline {5.3.2}Implementación}{10}{subsection.5.3.2}%
+\contentsline {chapter}{\numberline {6}Conclusiones}{1}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Objetivos marcados}{1}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Fase 1}{1}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Fase 2}{2}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Fase 3}{2}{subsection.6.1.3}%
+\contentsline {section}{\numberline {6.2}Valoración final}{3}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Trabajo futuro}{4}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Mejoras en el sensor de corriente}{4}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Mejoras en la aplicación web}{4}{subsection.6.3.2}%
+\contentsline {subsubsection}{Imágenes}{7}{section*.51}%
+\contentsline {chapter}{\numberline {A}Análisis de costes}{1}{appendix.Alph1}%

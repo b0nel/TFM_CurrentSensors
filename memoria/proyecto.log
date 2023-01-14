@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.11.23)  27 NOV 2022 22:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.11.23)  14 JAN 2023 01:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -566,6 +566,16 @@ File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 ) (./proyecto.aux
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
+
+
+LaTeX Warning: Label `fig:circuit' multiply defined.
+
+
+LaTeX Warning: Label `fig:circuit' multiply defined.
+
+
+LaTeX Warning: Label `zmpt101b_img' multiply defined.
+
 )
 \openout1 = `proyecto.aux'.
 
@@ -634,7 +644,7 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ) (./portada/portada.tex
 \centeroffset=\skip72
-<imagenes/logo_uoc.png, id=195, 385.44pt x 149.8398pt>
+<imagenes/logo_uoc.png, id=256, 385.44pt x 149.8398pt>
 File: imagenes/logo_uoc.png Graphic file (type png)
 <use imagenes/logo_uoc.png>
 Package pdftex.def Info: imagenes/logo_uoc.png  used on input line 11.
@@ -657,6 +667,11 @@ Overfull \hbox (21.0pt too wide) in paragraph at lines 25--37
 ] [3] [4
 
 ]
+Underfull \hbox (badness 4954) in paragraph at lines 22--23
+\OT1/cmr/bx/n/12 Palabras cla-ve\OT1/cmr/m/n/12 : Mi-cropython, Soft-wa-re em-be-bi-do, Esp32, Acs712,
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 22--23
 
  []
@@ -792,43 +807,74 @@ l.15 \item E
 
 
 ]
-<imagenes/gantt_inicial.PNG, id=415, 2154.0475pt x 564.1075pt>
+<imagenes/gantt_inicial.PNG, id=512, 2154.0475pt x 564.1075pt>
 File: imagenes/gantt_inicial.PNG Graphic file (type png)
 <use imagenes/gantt_inicial.PNG>
 Package pdftex.def Info: imagenes/gantt_inicial.PNG  used on input line 25.
 (pdftex.def)             Requested size: 390.0pt x 102.12888pt.
+<imagenes/gantt_final.PNG, id=513, 2295.57625pt x 583.17876pt>
+File: imagenes/gantt_final.PNG Graphic file (type png)
+<use imagenes/gantt_final.PNG>
+Package pdftex.def Info: imagenes/gantt_final.PNG  used on input line 32.
+(pdftex.def)             Requested size: 390.0pt x 99.07678pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 LaTeX Info: Redefining \. on input line 36.
 LaTeX Info: Redefining \% on input line 36.
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.36 	\item E
-             sptool como herramienta para trabajar con la flash de los ESP32. [2 <./imagenes/gantt_inicial.png>]
-Underfull \hbox (badness 1320) in paragraph at lines 58--59
-\OT1/cmr/m/n/12 los di-fe-ren-tes dis-po-si-ti-vos que se pue-den uti-li-zar pa-ra me-dir el
+l.36 \newpage
+              [2 <./imagenes/gantt_inicial.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 39--40
+
  []
 
-LaTeX Info: Redefining \. on input line 60.
-LaTeX Info: Redefining \% on input line 60.
+
+Underfull \hbox (badness 10000) in paragraph at lines 41--42
+
+ []
+
+LaTeX Info: Redefining \. on input line 59.
+LaTeX Info: Redefining \% on input line 59.
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.60 \item C
-            apítulo 4. Implementación de la aplicación web. En este capí... [3]
-LaTeX Info: Redefining \. on input line 64.
-LaTeX Info: Redefining \% on input line 64.
+l.59 	\item x
+             3 sensores de voltaje. [3 <./imagenes/gantt_final.png>]
+Underfull \hbox (badness 1320) in paragraph at lines 73--74
+\OT1/cmr/m/n/12 los di-fe-ren-tes dis-po-si-ti-vos que se pue-den uti-li-zar pa-ra me-dir el
+ []
+
+LaTeX Info: Redefining \. on input line 78.
+LaTeX Info: Redefining \% on input line 78.
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.64 \end{titlepage}
-                     [4]) (./capitulos/02_Teoria.tex
+l.78 \end{enumerate}
+                     [4]
+LaTeX Info: Redefining \. on input line 80.
+LaTeX Info: Redefining \% on input line 80.
+pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.80 \end{titlepage}
+                     [5]) (./capitulos/02_Teoria.texpdfTeX warning (ext4): destination with the same identifier (name{page.6}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1 \begin{titlepage}
+                      [6
+
+]
 Cap\'{\i }tulo 2.
 
 Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
  []
 
-<imagenes/contador.jpg, id=439, 369.38pt x 210.7875pt>
+<imagenes/contador.jpg, id=547, 369.38pt x 210.7875pt>
 File: imagenes/contador.jpg Graphic file (type jpg)
 <use imagenes/contador.jpg>
 Package pdftex.def Info: imagenes/contador.jpg  used on input line 20.
@@ -847,279 +893,291 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has b
 l.25 
       [1
 
-
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 42--43
+Underfull \hbox (badness 10000) in paragraph at lines 37--38
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--45
+Underfull \hbox (badness 10000) in paragraph at lines 39--40
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--51
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
 
  []
 
-LaTeX Info: Redefining \. on input line 51.
-LaTeX Info: Redefining \% on input line 51.
+LaTeX Info: Redefining \. on input line 46.
+LaTeX Info: Redefining \% on input line 46.
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.51 
+l.46 
       [2 <./imagenes/contador.jpg>]
-<imagenes/medidor_consumo.jpg, id=451, 1445.4pt x 813.0375pt>
+<imagenes/medidor_consumo.jpg, id=558, 1445.4pt x 813.0375pt>
 File: imagenes/medidor_consumo.jpg Graphic file (type jpg)
 <use imagenes/medidor_consumo.jpg>
-Package pdftex.def Info: imagenes/medidor_consumo.jpg  used on input line 65.
+Package pdftex.def Info: imagenes/medidor_consumo.jpg  used on input line 60.
 (pdftex.def)             Requested size: 195.0pt x 109.6809pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 70--71
+Underfull \hbox (badness 10000) in paragraph at lines 65--66
 
  []
 
-LaTeX Info: Redefining \. on input line 81.
-LaTeX Info: Redefining \% on input line 81.
+LaTeX Info: Redefining \. on input line 76.
+LaTeX Info: Redefining \% on input line 76.
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.81 \end{itemize}
+l.76 \end{itemize}
                    [3 <./imagenes/medidor_consumo.jpg>]
-<imagenes/medidor_cuadro.jpg, id=458, 356.33125pt x 356.33125pt>
+<imagenes/medidor_cuadro.jpg, id=565, 356.33125pt x 356.33125pt>
 File: imagenes/medidor_cuadro.jpg Graphic file (type jpg)
 <use imagenes/medidor_cuadro.jpg>
-Package pdftex.def Info: imagenes/medidor_cuadro.jpg  used on input line 84.
+Package pdftex.def Info: imagenes/medidor_cuadro.jpg  used on input line 79.
 (pdftex.def)             Requested size: 97.5pt x 97.49933pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 89--90
+Underfull \hbox (badness 10000) in paragraph at lines 84--85
 
  []
 
-<imagenes/monitor_consumo.jpg, id=460, 1505.625pt x 1505.625pt>
+<imagenes/monitor_consumo.jpg, id=567, 1505.625pt x 1505.625pt>
 File: imagenes/monitor_consumo.jpg Graphic file (type jpg)
 <use imagenes/monitor_consumo.jpg>
-Package pdftex.def Info: imagenes/monitor_consumo.jpg  used on input line 104.
+Package pdftex.def Info: imagenes/monitor_consumo.jpg  used on input line 99.
 (pdftex.def)             Requested size: 97.5pt x 97.4785pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Info: Redefining \. on input line 108.
-LaTeX Info: Redefining \% on input line 108.
+LaTeX Info: Redefining \. on input line 103.
+LaTeX Info: Redefining \% on input line 103.
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.108 \newpage
+l.103 \newpage
                [4 <./imagenes/medidor_cuadro.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
+Underfull \hbox (badness 10000) in paragraph at lines 106--107
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--118
+Underfull \hbox (badness 10000) in paragraph at lines 112--113
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 120--121
+Underfull \hbox (badness 10000) in paragraph at lines 115--116
 
  []
 
-<imagenes/sine_wave.png, id=466, 502.87875pt x 263.98625pt>
+<imagenes/sine_wave.png, id=573, 502.87875pt x 263.98625pt>
 File: imagenes/sine_wave.png Graphic file (type png)
 <use imagenes/sine_wave.png>
-Package pdftex.def Info: imagenes/sine_wave.png  used on input line 124.
+Package pdftex.def Info: imagenes/sine_wave.png  used on input line 119.
 (pdftex.def)             Requested size: 292.5pt x 153.54715pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Info: Redefining \. on input line 127.
-LaTeX Info: Redefining \% on input line 127.
+LaTeX Info: Redefining \. on input line 122.
+LaTeX Info: Redefining \% on input line 122.
 pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.127 \newpage
+l.122 \newpage
                [5 <./imagenes/monitor_consumo.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 128--129
+Underfull \hbox (badness 10000) in paragraph at lines 123--124
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--135
+Underfull \hbox (badness 10000) in paragraph at lines 129--130
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 136--137
+Underfull \hbox (badness 10000) in paragraph at lines 131--132
 
  []
 
-LaTeX Info: Redefining \. on input line 140.
-LaTeX Info: Redefining \% on input line 140.
+LaTeX Info: Redefining \. on input line 135.
+LaTeX Info: Redefining \% on input line 135.
 pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.140 \end{equation}
+l.135 \end{equation}
                      [6 <./imagenes/sine_wave.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 144--145
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
 
  []
 
+<imagenes/voltage_rms_example.png, id=593, 481.8pt x 209.78375pt>
+File: imagenes/voltage_rms_example.png Graphic file (type png)
+<use imagenes/voltage_rms_example.png>
+Package pdftex.def Info: imagenes/voltage_rms_example.png  used on input line 154.
+(pdftex.def)             Requested size: 292.5pt x 127.36288pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 156--157
+Underfull \hbox (badness 10000) in paragraph at lines 159--160
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 158--159
-
- []
-
-LaTeX Info: Redefining \. on input line 164.
-LaTeX Info: Redefining \% on input line 164.
+LaTeX Info: Redefining \. on input line 160.
+LaTeX Info: Redefining \% on input line 160.
 pdfTeX warning (ext4): destination with the same identifier (name{page.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.164 	\item A
-              lta precisión. [7]
-<imagenes/ina219.png, id=499, 912.40875pt x 614.295pt>
+l.160 \subsubsection
+                    {INA219} [7 <./imagenes/voltage_rms_example.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 161--162
+
+ []
+
+<imagenes/ina219.png, id=606, 912.40875pt x 614.295pt>
 File: imagenes/ina219.png Graphic file (type png)
 <use imagenes/ina219.png>
-Package pdftex.def Info: imagenes/ina219.png  used on input line 169.
+Package pdftex.def Info: imagenes/ina219.png  used on input line 172.
 (pdftex.def)             Requested size: 97.5pt x 65.64174pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 174--175
+Underfull \hbox (badness 10000) in paragraph at lines 177--178
 
  []
 
-<imagenes/zmpt101b.jpeg, id=502, 225.84375pt x 225.84375pt>
-File: imagenes/zmpt101b.jpeg Graphic file (type jpg)
-<use imagenes/zmpt101b.jpeg>
-Package pdftex.def Info: imagenes/zmpt101b.jpeg  used on input line 186.
-(pdftex.def)             Requested size: 97.5pt x 97.50032pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 192--193
-
- []
-
-LaTeX Info: Redefining \. on input line 193.
-LaTeX Info: Redefining \% on input line 193.
+LaTeX Info: Redefining \. on input line 185.
+LaTeX Info: Redefining \% on input line 185.
 pdfTeX warning (ext4): destination with the same identifier (name{page.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.193 
-       [8 <./imagenes/ina219.png> <./imagenes/zmpt101b.jpeg>]
-<imagenes/acs712.png, id=511, 702.625pt x 409.53pt>
-File: imagenes/acs712.png Graphic file (type png)
-<use imagenes/acs712.png>
-Package pdftex.def Info: imagenes/acs712.png  used on input line 201.
-(pdftex.def)             Requested size: 97.5pt x 56.82764pt.
+l.185 \end{itemize}
+                    [8 <./imagenes/ina219.png>]
+<imagenes/zmpt101b.jpeg, id=617, 225.84375pt x 225.84375pt>
+File: imagenes/zmpt101b.jpeg Graphic file (type jpg)
+<use imagenes/zmpt101b.jpeg>
+Package pdftex.def Info: imagenes/zmpt101b.jpeg  used on input line 189.
+(pdftex.def)             Requested size: 97.5pt x 97.50032pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 206--207
+Underfull \hbox (badness 10000) in paragraph at lines 195--196
 
  []
 
-<imagenes/arduino.png, id=514, 702.625pt x 594.22pt>
-File: imagenes/arduino.png Graphic file (type png)
-<use imagenes/arduino.png>
-Package pdftex.def Info: imagenes/arduino.png  used on input line 211.
-(pdftex.def)             Requested size: 195.0pt x 164.9116pt.
+<imagenes/acs712.png, id=620, 702.625pt x 409.53pt>
+File: imagenes/acs712.png Graphic file (type png)
+<use imagenes/acs712.png>
+Package pdftex.def Info: imagenes/acs712.png  used on input line 204.
+(pdftex.def)             Requested size: 97.5pt x 56.82764pt.
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Underfull \hbox (badness 10000) in paragraph at lines 209--210
 
-<imagenes/rpi.png, id=517, 279.6293pt x 166.77692pt>
-File: imagenes/rpi.png Graphic file (type png)
-<use imagenes/rpi.png>
-Package pdftex.def Info: imagenes/rpi.png  used on input line 218.
-(pdftex.def)             Requested size: 195.0pt x 116.30278pt.
-LaTeX Info: Redefining \. on input line 221.
-LaTeX Info: Redefining \% on input line 221.
+ []
+
+LaTeX Info: Redefining \. on input line 210.
+LaTeX Info: Redefining \% on input line 210.
 pdfTeX warning (ext4): destination with the same identifier (name{page.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.221 \subsection
-                 { NodeMCU ESP8266} [9 <./imagenes/acs712.png>]
-<imagenes/esp8266.jpg, id=527, 752.8125pt x 501.875pt>
+l.210 \subsection
+                 {Arduino} [9 <./imagenes/zmpt101b.jpeg> <./imagenes/acs712.png>]
+<imagenes/arduino.png, id=629, 702.625pt x 594.22pt>
+File: imagenes/arduino.png Graphic file (type png)
+<use imagenes/arduino.png>
+Package pdftex.def Info: imagenes/arduino.png  used on input line 214.
+(pdftex.def)             Requested size: 195.0pt x 164.9116pt.
+<imagenes/rpi.png, id=632, 279.6293pt x 166.77692pt>
+File: imagenes/rpi.png Graphic file (type png)
+<use imagenes/rpi.png>
+Package pdftex.def Info: imagenes/rpi.png  used on input line 221.
+(pdftex.def)             Requested size: 195.0pt x 116.30278pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<imagenes/esp8266.jpg, id=635, 752.8125pt x 501.875pt>
 File: imagenes/esp8266.jpg Graphic file (type jpg)
 <use imagenes/esp8266.jpg>
-Package pdftex.def Info: imagenes/esp8266.jpg  used on input line 225.
+Package pdftex.def Info: imagenes/esp8266.jpg  used on input line 228.
 (pdftex.def)             Requested size: 195.0pt x 130.00197pt.
-LaTeX Info: Redefining \. on input line 228.
-LaTeX Info: Redefining \% on input line 228.
+
+Underfull \vbox (badness 3375) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 231.
+LaTeX Info: Redefining \% on input line 231.
 pdfTeX warning (ext4): destination with the same identifier (name{page.10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.228 \subsection
-                 {ESP32} [10 <./imagenes/arduino.png> <./imagenes/rpi.png>]
-<imagenes/esp32.png, id=537, 595.9866pt x 344.7279pt>
+l.231 \subsection
+                 {ESP32} [10 <./imagenes/arduino.png>]
+<imagenes/esp32.png, id=645, 595.9866pt x 344.7279pt>
 File: imagenes/esp32.png Graphic file (type png)
 <use imagenes/esp32.png>
-Package pdftex.def Info: imagenes/esp32.png  used on input line 232.
+Package pdftex.def Info: imagenes/esp32.png  used on input line 235.
 (pdftex.def)             Requested size: 195.0pt x 112.78743pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 237--238
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 240--241
 
  []
 
-LaTeX Info: Redefining \. on input line 238.
-LaTeX Info: Redefining \% on input line 238.
-[11 <./imagenes/esp8266.jpg> <./imagenes/esp32.png>] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+LaTeX Info: Redefining \. on input line 241.
+LaTeX Info: Redefining \% on input line 241.
+[11 <./imagenes/rpi.png> <./imagenes/esp8266.jpg>] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <8> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 241.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 244.
 
-Underfull \hbox (badness 10000) in paragraph at lines 257--258
+Underfull \hbox (badness 10000) in paragraph at lines 260--261
+
+ []
+
+LaTeX Info: Redefining \. on input line 261.
+LaTeX Info: Redefining \% on input line 261.
+[12 <./imagenes/esp32.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 262--263
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--260
-
- []
-
-LaTeX Info: Redefining \. on input line 266.
-LaTeX Info: Redefining \% on input line 266.
-[12]
-Underfull \hbox (badness 3343) in paragraph at lines 266--267
+Underfull \hbox (badness 3343) in paragraph at lines 269--270
 []\OT1/cmr/m/n/12 Seguridad. MQTT per-mi-te el uso de TLS pa-ra en-crip-tar la
  []
 
-<imagenes/mqtt.png, id=571, 1027.84pt x 321.2pt>
+<imagenes/mqtt.png, id=681, 1027.84pt x 321.2pt>
 File: imagenes/mqtt.png Graphic file (type png)
 <use imagenes/mqtt.png>
-Package pdftex.def Info: imagenes/mqtt.png  used on input line 271.
+Package pdftex.def Info: imagenes/mqtt.png  used on input line 274.
 (pdftex.def)             Requested size: 292.5pt x 91.40572pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 275--276
-
- []
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 278--279
 
  []
 
 
-Underfull \hbox (badness 2626) in paragraph at lines 282--283
-[]\OT1/cmr/m/n/12 Zigbee coor-di-na-tor: El el dis-po-si-ti-vo mas ca-paz en-car-ga-do de
+Underfull \hbox (badness 10000) in paragraph at lines 281--282
+
  []
 
-<imagenes/zigbee.png, id=574, 999.735pt x 1027.84pt>
+LaTeX Info: Redefining \. on input line 282.
+LaTeX Info: Redefining \% on input line 282.
+[13 <./imagenes/mqtt.png>]
+Underfull \hbox (badness 2626) in paragraph at lines 285--286
+[]\OT1/cmr/m/n/12 Zigbee coor-di-na-tor: El el dis-po-si-ti-vo m^^Sas ca-paz en-car-ga-do de
+ []
+
+<imagenes/zigbee.png, id=690, 999.735pt x 1027.84pt>
 File: imagenes/zigbee.png Graphic file (type png)
 <use imagenes/zigbee.png>
-Package pdftex.def Info: imagenes/zigbee.png  used on input line 288.
+Package pdftex.def Info: imagenes/zigbee.png  used on input line 291.
 (pdftex.def)             Requested size: 175.49881pt x 180.42361pt.
+LaTeX Info: Redefining \. on input line 300.
+LaTeX Info: Redefining \% on input line 300.
+[14 <./imagenes/zigbee.png>]
+LaTeX Info: Redefining \. on input line 302.
+LaTeX Info: Redefining \% on input line 302.
+ [15]) (./capitulos/03_Implementacion_Sensor.tex [16
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-LaTeX Info: Redefining \. on input line 294.
-LaTeX Info: Redefining \% on input line 294.
-[13 <./imagenes/mqtt.png>]
-LaTeX Info: Redefining \. on input line 299.
-LaTeX Info: Redefining \% on input line 299.
- [14 <./imagenes/zigbee.png>]) (./capitulos/03_Implementacion_Sensor.tex
+]
 Cap\'{\i }tulo 3.
 
 Underfull \hbox (badness 10000) in paragraph at lines 5--6
@@ -1132,26 +1190,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--8
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9--10
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
  []
-
-<imagenes/voltage_divider.png, id=589, 1204.5pt x 1547.7825pt>
-File: imagenes/voltage_divider.png Graphic file (type png)
-<use imagenes/voltage_divider.png>
-Package pdftex.def Info: imagenes/voltage_divider.png  used on input line 16.
-(pdftex.def)             Requested size: 77.99881pt x 100.2079pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.19 
+l.11 
       [1
 
-
 ]
+<imagenes/voltage_divider.png, id=712, 1204.5pt x 1547.7825pt>
+File: imagenes/voltage_divider.png Graphic file (type png)
+<use imagenes/voltage_divider.png>
+Package pdftex.def Info: imagenes/voltage_divider.png  used on input line 14.
+(pdftex.def)             Requested size: 77.99881pt x 100.2079pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--19
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 20--21
 
  []
@@ -1161,461 +1221,691 @@ Underfull \hbox (badness 10000) in paragraph at lines 22--23
 
  []
 
+<imagenes/setup_experimental.png, id=714, 816.04875pt x 379.4175pt>
+File: imagenes/setup_experimental.png Graphic file (type png)
+<use imagenes/setup_experimental.png>
+Package pdftex.def Info: imagenes/setup_experimental.png  used on input line 26.
+(pdftex.def)             Requested size: 292.5pt x 135.99388pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--25
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
- []
-
-LaTeX Info: Redefining \. on input line 25.
-LaTeX Info: Redefining \% on input line 25.
+LaTeX Info: Redefining \. on input line 33.
+LaTeX Info: Redefining \% on input line 33.
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.25 
-      [2 <./imagenes/voltage_divider.png>]
-<imagenes/setup.png, id=599, 637.38126pt x 639.38875pt>
-File: imagenes/setup.png Graphic file (type png)
-<use imagenes/setup.png>
-Package pdftex.def Info: imagenes/setup.png  used on input line 28.
-(pdftex.def)             Requested size: 292.5pt x 293.41994pt.
-
-Underfull \hbox (badness 3668) in paragraph at lines 35--36
+l.33 	\item U
+             na vez con la herramienta instalada, lo primero es borrar compl... [2 <./imagenes/voltage_divider.png>]
+Underfull \hbox (badness 3668) in paragraph at lines 33--34
 []\OT1/cmr/m/n/12 Una vez con la he-rra-mien-ta ins-ta-la-da, lo pri-me-ro es bo-rrar
  []
 
-LaTeX Info: Redefining \. on input line 36.
-LaTeX Info: Redefining \% on input line 36.
-pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.36 \end{itemize}
-                   [3 <./imagenes/setup.png>] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
-LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 50.
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 48.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-<imagenes/micropython_prompt.png, id=610, 735.74875pt x 479.7925pt>
+<imagenes/micropython_prompt.png, id=723, 735.74875pt x 479.7925pt>
 File: imagenes/micropython_prompt.png Graphic file (type png)
 <use imagenes/micropython_prompt.png>
-Package pdftex.def Info: imagenes/micropython_prompt.png  used on input line 54.
+Package pdftex.def Info: imagenes/micropython_prompt.png  used on input line 52.
 (pdftex.def)             Requested size: 292.5pt x 190.74954pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--61
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--59
 
  []
 
-LaTeX Info: Redefining \. on input line 61.
-LaTeX Info: Redefining \% on input line 61.
+LaTeX Info: Redefining \. on input line 59.
+LaTeX Info: Redefining \% on input line 59.
+pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.59 
+      [3 <./imagenes/setup_experimental.png>]
+<imagenes/ampy.png, id=738, 714.67pt x 563.10374pt>
+File: imagenes/ampy.png Graphic file (type png)
+<use imagenes/ampy.png>
+Package pdftex.def Info: imagenes/ampy.png  used on input line 64.
+(pdftex.def)             Requested size: 292.5pt x 230.47018pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
+
+ []
+
+LaTeX Info: Redefining \. on input line 70.
+LaTeX Info: Redefining \% on input line 70.
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.61 
-      [4 <./imagenes/micropython_prompt.png>]
-<imagenes/ampy.png, id=624, 714.67pt x 563.10374pt>
-File: imagenes/ampy.png Graphic file (type png)
-<use imagenes/ampy.png>
-Package pdftex.def Info: imagenes/ampy.png  used on input line 66.
-(pdftex.def)             Requested size: 292.5pt x 230.47018pt.
-
+l.70 \subsubsection
+                   {Librería para MQTT} [4 <./imagenes/micropython_prompt.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 71--72
 
  []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Info: Redefining \. on input line 72.
 LaTeX Info: Redefining \% on input line 72.
 pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.72 \subsubsection
-                   {Libreria para MQTT} [5 <./imagenes/ampy.png>]
-Underfull \hbox (badness 1292) in paragraph at lines 73--74
-[]\OT1/cmr/m/n/12 Para usar MQTT, se ha uti-li-za-do la li-bre-ria umqtt.simple[[]] en
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 73--74
-
- []
-
-LaTeX Info: Redefining \. on input line 74.
-LaTeX Info: Redefining \% on input line 74.
+l.72 \newpage
+              [5 <./imagenes/ampy.png>]
+<imagenes/ruido_wifi_off_mV.png, id=754, 711.65875pt x 547.04375pt>
+File: imagenes/ruido_wifi_off_mV.png Graphic file (type png)
+<use imagenes/ruido_wifi_off_mV.png>
+Package pdftex.def Info: imagenes/ruido_wifi_off_mV.png  used on input line 78.
+(pdftex.def)             Requested size: 234.00238pt x 179.8739pt.
+<imagenes/ruido_wifi_on_mV.png, id=755, 711.65875pt x 547.04375pt>
+File: imagenes/ruido_wifi_on_mV.png Graphic file (type png)
+<use imagenes/ruido_wifi_on_mV.png>
+Package pdftex.def Info: imagenes/ruido_wifi_on_mV.png  used on input line 84.
+(pdftex.def)             Requested size: 234.00238pt x 179.8739pt.
+LaTeX Info: Redefining \. on input line 87.
+LaTeX Info: Redefining \% on input line 87.
 pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.74 \newpage
-              [6]
-<imagenes/Init.drawio.png, id=640, 282.05376pt x 684.5575pt>
+l.87 \newpage
+              [6 <./imagenes/ruido_wifi_off_mV.png> <./imagenes/ruido_wifi_on_mV.png>]
+<imagenes/Init.drawio.png, id=761, 282.05376pt x 684.5575pt>
 File: imagenes/Init.drawio.png Graphic file (type png)
 <use imagenes/Init.drawio.png>
-Package pdftex.def Info: imagenes/Init.drawio.png  used on input line 81.
+Package pdftex.def Info: imagenes/Init.drawio.png  used on input line 102.
 (pdftex.def)             Requested size: 117.00119pt x 283.97116pt.
 
-Underfull \hbox (badness 1062) in paragraph at lines 78--84
+Underfull \hbox (badness 1062) in paragraph at lines 99--105
 \OT1/cmr/m/n/12 pre-via-men-te co-ne-xi^^Son con la apli-ca-ci^^Son web, em-pe-za-re-mos a pu-bli-car
  []
 
-LaTeX Info: Redefining \. on input line 86.
-LaTeX Info: Redefining \% on input line 86.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 106--107
+
+ []
+
+LaTeX Info: Redefining \. on input line 107.
+LaTeX Info: Redefining \% on input line 107.
 pdfTeX warning (ext4): destination with the same identifier (name{page.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.86 
-      [7 <./imagenes/Init.drawio.png>]
-<imagenes/main.drawio.png, id=646, 169.63374pt x 462.72874pt>
+l.107 
+       [7]
+<imagenes/main.drawio.png, id=772, 169.63374pt x 462.72874pt>
 File: imagenes/main.drawio.png Graphic file (type png)
 <use imagenes/main.drawio.png>
-Package pdftex.def Info: imagenes/main.drawio.png  used on input line 89.
+Package pdftex.def Info: imagenes/main.drawio.png  used on input line 111.
 (pdftex.def)             Requested size: 117.00119pt x 319.15608pt.
-LaTeX Info: Redefining \. on input line 92.
-LaTeX Info: Redefining \% on input line 92.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Info: Redefining \. on input line 114.
+LaTeX Info: Redefining \% on input line 114.
 pdfTeX warning (ext4): destination with the same identifier (name{page.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.92 \newpage
-              [8 <./imagenes/main.drawio.png>]
-<imagenes/acs712.drawio.png, id=652, 159.59625pt x 593.21625pt>
+l.114 \newpage
+               [8 <./imagenes/Init.drawio.png>]
+<imagenes/acs712.drawio.png, id=777, 159.59625pt x 593.21625pt>
 File: imagenes/acs712.drawio.png Graphic file (type png)
 <use imagenes/acs712.drawio.png>
-Package pdftex.def Info: imagenes/acs712.drawio.png  used on input line 96.
+Package pdftex.def Info: imagenes/acs712.drawio.png  used on input line 118.
 (pdftex.def)             Requested size: 117.00119pt x 434.89081pt.
-LaTeX Info: Redefining \. on input line 104.
-LaTeX Info: Redefining \% on input line 104.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Info: Redefining \. on input line 121.
+LaTeX Info: Redefining \% on input line 121.
 pdfTeX warning (ext4): destination with the same identifier (name{page.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.104 connect_wifi(
-                   SSID, PASSWORD) [9 <./imagenes/acs712.drawio.png>]
-Overfull \hbox (12.90892pt too wide) in paragraph at lines 115--117
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
- []
+l.121 \newpage
+               [9 <./imagenes/main.drawio.png>]
+Underfull \vbox (badness 1231) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 161.
-LaTeX Info: Redefining \% on input line 161.
+LaTeX Info: Redefining \. on input line 130.
+LaTeX Info: Redefining \% on input line 130.
 pdfTeX warning (ext4): destination with the same identifier (name{page.10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.161 			time.
-              sleep_us(500) [10]
-LaTeX Info: Redefining \. on input line 216.
-LaTeX Info: Redefining \% on input line 216.
+l.130 MQTT_CLIENT.
+                  mqtt.set_callback(subscribe_callback) [10 <./imagenes/acs712.drawio.png>]
+Overfull \hbox (12.90892pt too wide) in paragraph at lines 142--143
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
+ []
+
+LaTeX Info: Redefining \. on input line 188.
+LaTeX Info: Redefining \% on input line 188.
 pdfTeX warning (ext4): destination with the same identifier (name{page.11}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.216 		average_value 
-                      += adc_raw [11]
-Overfull \hbox (2.7087pt too wide) in paragraph at lines 230--231
+l.188 		for 
+            i in range(100): [11]
+Underfull \vbox (badness 2635) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 244.
+LaTeX Info: Redefining \% on input line 244.
+pdfTeX warning (ext4): destination with the same identifier (name{page.12}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.244 \begin{lstlisting}[language=python]
+                                          [12]
+Overfull \hbox (2.7087pt too wide) in paragraph at lines 273--274
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
  []
 
 
-Overfull \hbox (2.7087pt too wide) in paragraph at lines 232--234
+Overfull \hbox (2.7087pt too wide) in paragraph at lines 275--277
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
  []
 
 
-Overfull \hbox (18.00903pt too wide) in paragraph at lines 267--268
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 304.
+LaTeX Info: Redefining \% on input line 304.
+pdfTeX warning (ext4): destination with the same identifier (name{page.13}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.304 	voltage_RMS 
+                   = voltage_RMS / len(samplesVPP) [13]
+Overfull \hbox (18.00903pt too wide) in paragraph at lines 310--311
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
  []
 
 
-Overfull \hbox (2.7087pt too wide) in paragraph at lines 269--270
+Overfull \hbox (2.7087pt too wide) in paragraph at lines 312--313
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
  []
 
 
-Overfull \hbox (23.10915pt too wide) in paragraph at lines 272--273
+Overfull \hbox (23.10915pt too wide) in paragraph at lines 315--316
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 278.
-LaTeX Info: Redefining \% on input line 278.
-pdfTeX warning (ext4): destination with the same identifier (name{page.12}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.278 	voltage_RMS,
-                    voltage = self.readRMSVoltage(logging=logging) [12]
-Underfull \hbox (badness 10000) in paragraph at lines 314--315
+Underfull \hbox (badness 10000) in paragraph at lines 357--358
 
  []
 
 
-Underfull \hbox (badness 2846) in paragraph at lines 318--319
+Underfull \hbox (badness 10000) in paragraph at lines 362--363
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 363.
+LaTeX Info: Redefining \% on input line 363.
+pdfTeX warning (ext4): destination with the same identifier (name{page.14}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.363 
+       [14]
+Underfull \hbox (badness 10000) in paragraph at lines 365--366
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 367--368
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 373--374
+
+ []
+
+LaTeX Info: Redefining \. on input line 378.
+LaTeX Info: Redefining \% on input line 378.
+pdfTeX warning (ext4): destination with the same identifier (name{page.15}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.378 	\item y
+              2 es el valor del voltaje aplicado [15]
+<imagenes/setup_experimental2.png, id=1033, 925.4575pt x 379.4175pt>
+File: imagenes/setup_experimental2.png Graphic file (type png)
+<use imagenes/setup_experimental2.png>
+Package pdftex.def Info: imagenes/setup_experimental2.png  used on input line 383.
+(pdftex.def)             Requested size: 390.0pt x 159.89267pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 388--389
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 390--391
+
+ []
+
+LaTeX Info: Redefining \. on input line 391.
+LaTeX Info: Redefining \% on input line 391.
+pdfTeX warning (ext4): destination with the same identifier (name{page.16}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.391 \newpage
+               [16 <./imagenes/setup_experimental2.png>]
+<imagenes/sensor_sin_calibrar.png, id=1038, 1923.185pt x 1083.04625pt>
+File: imagenes/sensor_sin_calibrar.png Graphic file (type png)
+<use imagenes/sensor_sin_calibrar.png>
+Package pdftex.def Info: imagenes/sensor_sin_calibrar.png  used on input line 394.
+(pdftex.def)             Requested size: 292.5pt x 164.71397pt.
+<imagenes/sensor_calibrado.png, id=1039, 1914.15125pt x 1084.05pt>
+File: imagenes/sensor_calibrado.png Graphic file (type png)
+<use imagenes/sensor_calibrado.png>
+Package pdftex.def Info: imagenes/sensor_calibrado.png  used on input line 401.
+(pdftex.def)             Requested size: 292.5pt x 165.64407pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 398--407
+
+ []
+
+LaTeX Info: Redefining \. on input line 407.
+LaTeX Info: Redefining \% on input line 407.
+[17 <./imagenes/sensor_sin_calibrar.png> <./imagenes/sensor_calibrado.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 471.
+LaTeX Info: Redefining \% on input line 471.
+ [18]
+Overfull \hbox (7.8088pt too wide) in paragraph at lines 489--491
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
+ []
+
+
+Overfull \hbox (7.8088pt too wide) in paragraph at lines 502--503
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 531.
+LaTeX Info: Redefining \% on input line 531.
+ [19]
+Underfull \hbox (badness 2846) in paragraph at lines 539--540
 []\OT1/cmr/m/n/12 Para pro-bar di-fe-ren-te am-pe-ra-jes se ha uti-li-za-do una fuen-te de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 318--319
+Underfull \hbox (badness 10000) in paragraph at lines 539--540
 
  []
 
-<imagenes/DC_noload.jpg, id=841, 4015.0pt x 3011.25pt>
+<imagenes/DC_noload.jpg, id=1177, 4015.0pt x 3011.25pt>
 File: imagenes/DC_noload.jpg Graphic file (type jpg)
 <use imagenes/DC_noload.jpg>
-Package pdftex.def Info: imagenes/DC_noload.jpg  used on input line 322.
-(pdftex.def)             Requested size: 195.0pt x 146.20627pt.
+Package pdftex.def Info: imagenes/DC_noload.jpg  used on input line 543.
+(pdftex.def)             Requested size: 390.0pt x 292.45848pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 546--547
+
+ []
+
+LaTeX Info: Redefining \. on input line 547.
+LaTeX Info: Redefining \% on input line 547.
+[20 <./imagenes/DC_noload.jpg>]
+<imagenes/DC_1Amp.jpg, id=1189, 4015.0pt x 3011.25pt>
+File: imagenes/DC_1Amp.jpg Graphic file (type jpg)
+<use imagenes/DC_1Amp.jpg>
+Package pdftex.def Info: imagenes/DC_1Amp.jpg  used on input line 550.
+(pdftex.def)             Requested size: 390.0pt x 292.45848pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 553--554
+
+ []
+
+<imagenes/DC_1_7Amp.jpg, id=1190, 4015.0pt x 3011.25pt>
+File: imagenes/DC_1_7Amp.jpg Graphic file (type jpg)
+<use imagenes/DC_1_7Amp.jpg>
+Package pdftex.def Info: imagenes/DC_1_7Amp.jpg  used on input line 557.
+(pdftex.def)             Requested size: 390.0pt x 292.45848pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 325--326
+Underfull \hbox (badness 10000) in paragraph at lines 560--561
+
+ []
+
+<imagenes/DC_3Amps.jpg, id=1191, 4015.0pt x 3011.25pt>
+File: imagenes/DC_3Amps.jpg Graphic file (type jpg)
+<use imagenes/DC_3Amps.jpg>
+Package pdftex.def Info: imagenes/DC_3Amps.jpg  used on input line 564.
+(pdftex.def)             Requested size: 390.0pt x 292.45848pt.
+LaTeX Info: Redefining \. on input line 566.
+LaTeX Info: Redefining \% on input line 566.
+[21 <./imagenes/DC_1Amp.jpg>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 567--568
+
+ []
+
+LaTeX Info: Redefining \. on input line 568.
+LaTeX Info: Redefining \% on input line 568.
+[22 <./imagenes/DC_1_7Amp.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 570--571
+
+ []
+
+<imagenes/AC_noload.jpg, id=1203, 4015.0pt x 3011.25pt>
+File: imagenes/AC_noload.jpg Graphic file (type jpg)
+<use imagenes/AC_noload.jpg>
+Package pdftex.def Info: imagenes/AC_noload.jpg  used on input line 575.
+(pdftex.def)             Requested size: 390.0pt x 292.45848pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<imagenes/AC_O_7Amps.jpg, id=1204, 4015.0pt x 3011.25pt>
+File: imagenes/AC_O_7Amps.jpg Graphic file (type jpg)
+<use imagenes/AC_O_7Amps.jpg>
+Package pdftex.def Info: imagenes/AC_O_7Amps.jpg  used on input line 584.
+(pdftex.def)             Requested size: 390.0pt x 292.45848pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 587.
+LaTeX Info: Redefining \% on input line 587.
+ [23 <./imagenes/DC_3Amps.jpg>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Info: Redefining \. on input line 587.
+LaTeX Info: Redefining \% on input line 587.
+[24 <./imagenes/AC_noload.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 588--589
+
+ []
+
+<imagenes/AC_2_8Amps.jpg, id=1215, 4015.0pt x 3011.25pt>
+File: imagenes/AC_2_8Amps.jpg Graphic file (type jpg)
+<use imagenes/AC_2_8Amps.jpg>
+Package pdftex.def Info: imagenes/AC_2_8Amps.jpg  used on input line 593.
+(pdftex.def)             Requested size: 390.0pt x 292.45848pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Info: Redefining \. on input line 596.
+LaTeX Info: Redefining \% on input line 596.
+[25 <./imagenes/AC_O_7Amps.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 597--599
+
+ []
+
+<imagenes/AC_4_9Amps.jpg, id=1222, 4015.0pt x 3011.25pt>
+File: imagenes/AC_4_9Amps.jpg Graphic file (type jpg)
+<use imagenes/AC_4_9Amps.jpg>
+Package pdftex.def Info: imagenes/AC_4_9Amps.jpg  used on input line 603.
+(pdftex.def)             Requested size: 390.0pt x 292.45848pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 600--607
+
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Info: Redefining \. on input line 607.
+LaTeX Info: Redefining \% on input line 607.
+[26 <./imagenes/AC_2_8Amps.jpg>]) (./capitulos/04_Despliegue_Broker_MQTT.tex [27 <./imagenes/AC_4_9Amps.jpg>]
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+ [28
+
+]
+Cap\'{\i }tulo 4.
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--10
+
+ []
+
+<imagenes/etcher.png, id=1238, 771.88374pt x 428.60126pt>
+File: imagenes/etcher.png Graphic file (type png)
+<use imagenes/etcher.png>
+Package pdftex.def Info: imagenes/etcher.png  used on input line 14.
+(pdftex.def)             Requested size: 292.5pt x 162.41237pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--19
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 326.
-LaTeX Info: Redefining \% on input line 326.
-pdfTeX warning (ext4): destination with the same identifier (name{page.13}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.326 \subsubsection
-                    {1A} [13]
-<imagenes/DC_1Amp.jpg, id=880, 4015.0pt x 3011.25pt>
-File: imagenes/DC_1Amp.jpg Graphic file (type jpg)
-<use imagenes/DC_1Amp.jpg>
-Package pdftex.def Info: imagenes/DC_1Amp.jpg  used on input line 329.
-(pdftex.def)             Requested size: 195.0pt x 146.20627pt.
+l.22 
+      [1
 
-Underfull \hbox (badness 10000) in paragraph at lines 332--333
+]
+Underfull \hbox (badness 10000) in paragraph at lines 23--24
 
  []
 
-<imagenes/DC_1_7Amp.jpg, id=881, 4015.0pt x 3011.25pt>
-File: imagenes/DC_1_7Amp.jpg Graphic file (type jpg)
-<use imagenes/DC_1_7Amp.jpg>
-Package pdftex.def Info: imagenes/DC_1_7Amp.jpg  used on input line 336.
-(pdftex.def)             Requested size: 195.0pt x 146.20627pt.
-LaTeX Info: Redefining \. on input line 338.
-LaTeX Info: Redefining \% on input line 338.
-pdfTeX warning (ext4): destination with the same identifier (name{page.14}) has been already used, duplicate ignored
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--30
+
+ []
+
+
+Underfull \hbox (badness 1184) in paragraph at lines 36--37
+[]\OT1/cmr/m/n/12 Para pro-bar que Mos-quit-to fun-cio-na co-rrec-ta-men-te, po-de-mos usar
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
+
+ []
+
+LaTeX Info: Redefining \. on input line 37.
+LaTeX Info: Redefining \% on input line 37.
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.338 \end{figure}
-                   [14 <./imagenes/DC_noload.jpg> <./imagenes/DC_1Amp.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 339--340
-
- []
-
-<imagenes/DC_3Amps.jpg, id=887, 4015.0pt x 3011.25pt>
-File: imagenes/DC_3Amps.jpg Graphic file (type jpg)
-<use imagenes/DC_3Amps.jpg>
-Package pdftex.def Info: imagenes/DC_3Amps.jpg  used on input line 343.
-(pdftex.def)             Requested size: 195.0pt x 146.20627pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 346--347
+l.37 \subsubsection
+                   {Suscribirse a un topic} [2 <./imagenes/etcher.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 38--39
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 349--350
+Underfull \hbox (badness 10000) in paragraph at lines 44--45
 
  []
 
-LaTeX Info: Redefining \. on input line 350.
-LaTeX Info: Redefining \% on input line 350.
-[15 <./imagenes/DC_1_7Amp.jpg> <./imagenes/DC_3Amps.jpg>]
-<imagenes/AC_noload.jpg, id=894, 4015.0pt x 3011.25pt>
-File: imagenes/AC_noload.jpg Graphic file (type jpg)
-<use imagenes/AC_noload.jpg>
-Package pdftex.def Info: imagenes/AC_noload.jpg  used on input line 354.
-(pdftex.def)             Requested size: 195.0pt x 146.20627pt.
-<imagenes/AC_O_7Amps.jpg, id=895, 4015.0pt x 3011.25pt>
-File: imagenes/AC_O_7Amps.jpg Graphic file (type jpg)
-<use imagenes/AC_O_7Amps.jpg>
-Package pdftex.def Info: imagenes/AC_O_7Amps.jpg  used on input line 363.
-(pdftex.def)             Requested size: 195.0pt x 146.20627pt.
+<imagenes/mqtt_test.png, id=1255, 2445.135pt x 207.77625pt>
+File: imagenes/mqtt_test.png Graphic file (type png)
+<use imagenes/mqtt_test.png>
+Package pdftex.def Info: imagenes/mqtt_test.png  used on input line 52.
+(pdftex.def)             Requested size: 390.0pt x 33.14024pt.
+LaTeX Info: Redefining \. on input line 56.
+LaTeX Info: Redefining \% on input line 56.
+pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.56 \end{titlepage}
+                     [3 <./imagenes/mqtt_test.png>]) (./capitulos/05_Implementacion_AppWeb.texpdfTeX warning (ext4): destination with the same identifier (name{page.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1 \begin{titlepage}
+                      [4
 
-Underfull \hbox (badness 10000) in paragraph at lines 360--367
-
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<imagenes/AC_2_8Amps.jpg, id=896, 4015.0pt x 3011.25pt>
-File: imagenes/AC_2_8Amps.jpg Graphic file (type jpg)
-<use imagenes/AC_2_8Amps.jpg>
-Package pdftex.def Info: imagenes/AC_2_8Amps.jpg  used on input line 372.
-(pdftex.def)             Requested size: 195.0pt x 146.20627pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 369--377
-
- []
-
-
-Underfull \vbox (badness 1314) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 377.
-LaTeX Info: Redefining \% on input line 377.
- [16 <./imagenes/AC_noload.jpg>]
-<imagenes/AC_4_9Amps.jpg, id=903, 4015.0pt x 3011.25pt>
-File: imagenes/AC_4_9Amps.jpg Graphic file (type jpg)
-<use imagenes/AC_4_9Amps.jpg>
-Package pdftex.def Info: imagenes/AC_4_9Amps.jpg  used on input line 381.
-(pdftex.def)             Requested size: 195.0pt x 146.20627pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 378--385
-
- []
-
-LaTeX Info: Redefining \. on input line 385.
-LaTeX Info: Redefining \% on input line 385.
-[17 <./imagenes/AC_O_7Amps.jpg> <./imagenes/AC_2_8Amps.jpg>]
-LaTeX Info: Redefining \. on input line 386.
-LaTeX Info: Redefining \% on input line 386.
- [18 <./imagenes/AC_4_9Amps.jpg>]) (./capitulos/04_Implementacion_AppWeb.tex
-Cap\'{\i }tulo 4.
+]
+Cap\'{\i }tulo 5.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.13 	app.
           config['TEMPLATES_AUTO_RELOAD'] = True [1
 
-
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 28--29
+Underfull \hbox (badness 10000) in paragraph at lines 26--27
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--63
+Overfull \hbox (28.20926pt too wide) in paragraph at lines 45--46
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
 
  []
 
 
-Underfull \vbox (badness 2261) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 63.
-LaTeX Info: Redefining \% on input line 63.
+LaTeX Info: Redefining \. on input line 61.
+LaTeX Info: Redefining \% on input line 61.
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.63 
+l.61 
       [2]
-Underfull \hbox (badness 10000) in paragraph at lines 109--110
+Underfull \hbox (badness 10000) in paragraph at lines 107--108
 
  []
 
-LaTeX Info: Redefining \. on input line 110.
-LaTeX Info: Redefining \% on input line 110.
+LaTeX Info: Redefining \. on input line 108.
+LaTeX Info: Redefining \% on input line 108.
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.110 \begin{lstlisting}[language=python]
+l.108 \begin{lstlisting}[language=python]
                                           [3]
-Underfull \hbox (badness 10000) in paragraph at lines 132--133
+Underfull \hbox (badness 10000) in paragraph at lines 130--131
 
  []
 
-LaTeX Info: Redefining \. on input line 160.
-LaTeX Info: Redefining \% on input line 160.
+LaTeX Info: Redefining \. on input line 158.
+LaTeX Info: Redefining \% on input line 158.
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.160 	mqtt.
+l.158 	mqtt.
             publish('restart/' + str, "restart", 0) [4]
-Overfull \hbox (7.8088pt too wide) in paragraph at lines 184--186
+Overfull \hbox (7.8088pt too wide) in paragraph at lines 182--184
 [][][][][][][][][][][][][][][][][][][][][]  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 189--190
+Underfull \hbox (badness 10000) in paragraph at lines 199--200
 
  []
 
-
-Underfull \vbox (badness 5316) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 210.
-LaTeX Info: Redefining \% on input line 210.
+LaTeX Info: Redefining \. on input line 211.
+LaTeX Info: Redefining \% on input line 211.
 pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.210 \begin{lstlisting}[language=python]
-                                          [5]
-Overfull \hbox (12.90892pt too wide) in paragraph at lines 231--232
+l.211 @mqtt.
+            on_connect() [5]
+Overfull \hbox (12.90892pt too wide) in paragraph at lines 241--242
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
  []
 
-
-Underfull \vbox (badness 7576) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 265.
-LaTeX Info: Redefining \% on input line 265.
+LaTeX Info: Redefining \. on input line 264.
+LaTeX Info: Redefining \% on input line 264.
 pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.265         self.
-                   load_average_data() [6]
-Overfull \hbox (48.60971pt too wide) in paragraph at lines 281--282
+l.264     def 
+              load_max_data(self): [6]
+Overfull \hbox (48.60971pt too wide) in paragraph at lines 291--292
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
  []
 
-
-Underfull \hbox (badness 1603) in paragraph at lines 293--294
-[]\OT1/cmr/m/n/12 Una vez le de-mos al bo-ton de A~nadir, el ser-vi-dor en-viar^^Sa la
- []
-
-<imagenes/web_addsensor.png, id=1173, 954.56625pt x 483.8075pt>
-File: imagenes/web_addsensor.png Graphic file (type png)
-<use imagenes/web_addsensor.png>
-Package pdftex.def Info: imagenes/web_addsensor.png  used on input line 297.
-(pdftex.def)             Requested size: 390.0pt x 197.66104pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<imagenes/web_listsensors.png, id=1174, 954.56625pt x 483.8075pt>
-File: imagenes/web_listsensors.png Graphic file (type png)
-<use imagenes/web_listsensors.png>
-Package pdftex.def Info: imagenes/web_listsensors.png  used on input line 304.
-(pdftex.def)             Requested size: 390.0pt x 197.66104pt.
-LaTeX Info: Redefining \. on input line 307.
-LaTeX Info: Redefining \% on input line 307.
+LaTeX Info: Redefining \. on input line 295.
+LaTeX Info: Redefining \% on input line 295.
 pdfTeX warning (ext4): destination with the same identifier (name{page.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.307 \subsubsection
-                    {Mostrar datos de un sensor} [7]
-<imagenes/web_datos.png, id=1195, 1921.1775pt x 968.61874pt>
-File: imagenes/web_datos.png Graphic file (type png)
-<use imagenes/web_datos.png>
-Package pdftex.def Info: imagenes/web_datos.png  used on input line 311.
-(pdftex.def)             Requested size: 390.0pt x 196.61717pt.
+l.295 \newpage
+               [7]
+Underfull \hbox (badness 10000) in paragraph at lines 299--300
 
-Underfull \vbox (badness 5217) has occurred while \output is active []
+ []
 
-LaTeX Info: Redefining \. on input line 314.
-LaTeX Info: Redefining \% on input line 314.
+<imagenes/index.png, id=1557, 1370.11874pt x 672.5125pt>
+File: imagenes/index.png Graphic file (type png)
+<use imagenes/index.png>
+Package pdftex.def Info: imagenes/index.png  used on input line 303.
+(pdftex.def)             Requested size: 390.0pt x 191.42177pt.
+LaTeX Info: Redefining \. on input line 313.
+LaTeX Info: Redefining \% on input line 313.
 pdfTeX warning (ext4): destination with the same identifier (name{page.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.314 \subsection
-                 {Implementación} [8 <./imagenes/web_addsensor.png> <./imagenes/web_listsensors.png>]
-LaTeX Info: Redefining \. on input line 318.
-LaTeX Info: Redefining \% on input line 318.
+l.313 	\item U
+              na vez le demos al botón de Añadir, el servidor enviará la ... [8 <./imagenes/index.png>]
+Underfull \hbox (badness 1603) in paragraph at lines 313--314
+[]\OT1/cmr/m/n/12 Una vez le de-mos al bot^^Son de A~nadir, el ser-vi-dor en-viar^^Sa la
+ []
+
+<imagenes/web_addsensor.png, id=1564, 954.56625pt x 483.8075pt>
+File: imagenes/web_addsensor.png Graphic file (type png)
+<use imagenes/web_addsensor.png>
+Package pdftex.def Info: imagenes/web_addsensor.png  used on input line 317.
+(pdftex.def)             Requested size: 390.0pt x 197.66104pt.
+<imagenes/web_listsensors.png, id=1565, 954.56625pt x 483.8075pt>
+File: imagenes/web_listsensors.png Graphic file (type png)
+<use imagenes/web_listsensors.png>
+Package pdftex.def Info: imagenes/web_listsensors.png  used on input line 324.
+(pdftex.def)             Requested size: 292.5pt x 148.24393pt.
+LaTeX Info: Redefining \. on input line 327.
+LaTeX Info: Redefining \% on input line 327.
 pdfTeX warning (ext4): destination with the same identifier (name{page.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.318 \end{titlepage}
-                      [9 <./imagenes/web_datos.png>]) (./capitulos/05_Conclusiones.texpdfTeX warning (ext4): destination with the same identifier (name{page.10}) has been already used, duplicate ignored
+l.327 \newpage
+               [9 <./imagenes/web_addsensor.png> <./imagenes/web_listsensors.png>]
+<imagenes/web_datos.png, id=1572, 1409.265pt x 716.6775pt>
+File: imagenes/web_datos.png Graphic file (type png)
+<use imagenes/web_datos.png>
+Package pdftex.def Info: imagenes/web_datos.png  used on input line 333.
+(pdftex.def)             Requested size: 390.0pt x 198.32811pt.
+LaTeX Info: Redefining \. on input line 340.
+LaTeX Info: Redefining \% on input line 340.
+pdfTeX warning (ext4): destination with the same identifier (name{page.10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1 \begin{titlepage}
-                      [10
-
-]
-Cap\'{\i }tulo 5.
+l.340 \end{titlepage}
+                      [10 <./imagenes/web_datos.png>]) (./capitulos/06_Conclusiones.tex
+Cap\'{\i }tulo 6.
 
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
@@ -1624,26 +1914,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--4
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.21         \item A
-                    ñadir una función para encender o apagar la monitoriza... [1
+l.20         \item P
+                    rograma que muestre a un LCD o por consola el consumo ca... [1
+
 
 ]
-Underfull \hbox (badness 1033) in paragraph at lines 48--49
-\OT1/cmr/m/n/12 los re-sul-ta-dos ob-te-ni-dos con el ACS712 con otro sen-sor de co-rrien-te
+Underfull \hbox (badness 1383) in paragraph at lines 46--47
+[]\OT1/cmr/m/n/12 En es-te pro-yec-to, he-mos po-di-do com-pro-bar que ha-cien-do uso de
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
+
+ []
+
+LaTeX Info: Redefining \. on input line 47.
+LaTeX Info: Redefining \% on input line 47.
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.47 
+      [2]
 Underfull \hbox (badness 10000) in paragraph at lines 48--49
 
  []
 
-LaTeX Info: Redefining \. on input line 49.
-LaTeX Info: Redefining \% on input line 49.
-pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.49 
-      [2]
+
 Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
@@ -1654,41 +1950,45 @@ Underfull \hbox (badness 10000) in paragraph at lines 52--53
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--55
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 56--57
-
- []
-
-
-Underfull \hbox (badness 1009) in paragraph at lines 58--60
-\OT1/cmr/m/n/12 Otra me-jo-ra im-por-tan-te se-ria a~nadir el his-to-ri-co de da-tos. Pa-ra ello
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 58--60
+Underfull \hbox (badness 10000) in paragraph at lines 58--59
 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 60.
-LaTeX Info: Redefining \% on input line 60.
+LaTeX Info: Redefining \. on input line 59.
+LaTeX Info: Redefining \% on input line 59.
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.60 
+l.59 
       [3]
-LaTeX Info: Redefining \. on input line 61.
-LaTeX Info: Redefining \% on input line 61.
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--65
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--67
+
+ []
+
+LaTeX Info: Redefining \. on input line 68.
+LaTeX Info: Redefining \% on input line 68.
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.61 \end{titlepage}
+l.68 \end{titlepage}
                      [4]) (./capitulos/Bibliografia.tex
 Underfull \hbox (badness 10000) in paragraph at lines 18--19
 []\OT1/cmr/m/n/12 An Ex-pla-na-tion of RMS Po-wer Mea-su-re-ment []$\OT1/cmtt/m/n/12 https : / / www .
@@ -1766,233 +2066,341 @@ Underfull \hbox (badness 10000) in paragraph at lines 72--73
  []
 
 
-Underfull \hbox (badness 8151) in paragraph at lines 99--100
+Underfull \hbox (badness 3168) in paragraph at lines 84--85
+[]\OT1/cmr/m/n/12 Imagenes de Rasp-bian []$\OT1/cmtt/m/n/12 https : / / www . raspberrypi . com / software /
+ []
+
+
+Underfull \hbox (badness 7631) in paragraph at lines 90--91
+[]\OT1/cmr/m/n/12 Listado de bro-ker MQTT []$\OT1/cmtt/m/n/12 https : / / www . engineersgarage . com /
+ []
+
+
+Underfull \hbox (badness 8151) in paragraph at lines 107--108
 []\OT1/cmr/m/n/12 Sensor de co-rrien-te ACS712 []$\OT1/cmtt/m/n/12 https : / / hifisac . com / web / image /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 102--103
+Underfull \hbox (badness 10000) in paragraph at lines 110--111
 []\OT1/cmr/m/n/12 Forma de on-da[]$\OT1/cmtt/m/n/12 https : / / www . electronics-[]tutorials . ws /
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 105--106
+LaTeX Info: Redefining \. on input line 111.
+LaTeX Info: Redefining \% on input line 111.
+pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.111 
+       [6]
+Underfull \hbox (badness 10000) in paragraph at lines 113--114
 \OT1/cmtt/m/n/12 2F % 2Fwww . edistribucion . com % 2Fes % 2Fcontador-[]inteligente . html &
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 105--106
+Underfull \hbox (badness 10000) in paragraph at lines 113--114
 \OT1/cmtt/m/n/12 psig = AOvVaw1P7NHoZnSfYabSYum _ 6eGT & ust = 1669552774663000 &
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 105--106
+Underfull \hbox (badness 10000) in paragraph at lines 113--114
 \OT1/cmtt/m/n/12 source = images & cd = vfe & ved = 0CBAQjRxqFwoTCNi _ wvLuy _
  []
 
-LaTeX Info: Redefining \. on input line 107.
-LaTeX Info: Redefining \% on input line 107.
-pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.107 \bibitem{factura_img}
-                            [6]
-Underfull \hbox (badness 10000) in paragraph at lines 108--109
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--117
 []\OT1/cmr/m/n/12 Ejemplo de fac-tu-ra de la luz []$\OT1/cmtt/m/n/12 https : / / www . google . com /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 108--109
+Underfull \hbox (badness 10000) in paragraph at lines 116--117
 \OT1/cmtt/m/n/12 url ? sa = i & url = https % 3A % 2F % 2Fenchufesolar . com % 2Fblog %
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 108--109
+Underfull \hbox (badness 10000) in paragraph at lines 116--117
 \OT1/cmtt/m/n/12 2Ftu-[]factura-[]de-[]la-[]luz-[]explicada-[]paso-[]a-[]paso % 2F & psig =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 108--109
+Underfull \hbox (badness 10000) in paragraph at lines 116--117
 \OT1/cmtt/m/n/12 AOvVaw26bJ-[]O1gl0Srq4XB1XktT3 & ust = 1669552975152000 & source =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
+Underfull \hbox (badness 10000) in paragraph at lines 119--120
 []\OT1/cmr/m/n/12 Enchufe me-di-dor de con-su-mo elec-tri-co []$\OT1/cmtt/m/n/12 https : / /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
+Underfull \hbox (badness 10000) in paragraph at lines 119--120
 \OT1/cmtt/m/n/12 www . google . com / url ? sa = i & url = https % 3A % 2F % 2Fwww .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
+Underfull \hbox (badness 10000) in paragraph at lines 119--120
 \OT1/cmtt/m/n/12 elconfidencial . com % 2Ftecnologia % 2F2021-[]08-[]19 %
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
+Underfull \hbox (badness 10000) in paragraph at lines 119--120
 \OT1/cmtt/m/n/12 2Fmedidores-[]consumo-[]electrico-[]para-[]ahorrar-[]energia _ 3237006 %
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
+Underfull \hbox (badness 10000) in paragraph at lines 119--120
 \OT1/cmtt/m/n/12 2F & psig = AOvVaw0NNrUmh-[]RooxXDxCa3Y-[]p5 & ust = 1669553501475000 &
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
+Underfull \hbox (badness 10000) in paragraph at lines 119--120
 \OT1/cmtt/m/n/12 source = images & cd = vfe & ved = 0CBAQjRxqFwoTCNCk1uHxy _
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--115
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
 []\OT1/cmr/m/n/12 Medidor con-su-mo cua-dro elec-tri-co []$\OT1/cmtt/m/n/12 https : / / www . google .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--115
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
 \OT1/cmtt/m/n/12 com / url ? sa = i & url = https % 3A % 2F % 2Fwww . amazon . de % 2F-[] %
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--115
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
 \OT1/cmtt/m/n/12 2Fen % 2FDigital-[]Electricity-[]Top-[]hat-[]1-[]Phase-[]AC230V %
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--115
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
 \OT1/cmtt/m/n/12 2Fdp % 2FB08T62R7Y5 & psig = AOvVaw0SbT0RjfTplhgZSh5ESXo7 &
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--115
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
 \OT1/cmtt/m/n/12 ust = 1669553760554000 & source = images & cd = vfe & ved =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--118
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
 []\OT1/cmr/m/n/12 Monitor de ener-gia in-te-li-gen-te []$\OT1/cmtt/m/n/12 https : / / www . google .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--118
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
 \OT1/cmtt/m/n/12 com / url ? sa = i & url = https % 3A % 2F % 2Fwww . amazon . com %
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--118
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
 \OT1/cmtt/m/n/12 2F-[] % 2Fes % 2Finteligente-[]electricidad-[]Medici % 25C3 %
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--118
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
 \OT1/cmtt/m/n/12 25B3n-[]Conserva-[]tranquilidad % 2Fdp % 2FB086BNQ1X4 & psig =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--118
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
 \OT1/cmtt/m/n/12 AOvVaw1hO14UGx5ZKO99RTKsxWgl & ust = 1669554058157000 & source =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 120--121
+Underfull \hbox (badness 10000) in paragraph at lines 128--129
 []\OT1/cmr/m/n/12 Sensor INA219 []$\OT1/cmtt/m/n/12 https : / / cdn-[]reichelt . de / bilder / web / xxl _ ws /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--124
+Underfull \hbox (badness 10000) in paragraph at lines 131--132
 []\OT1/cmr/m/n/12 Sensor ZMPT101B []$\OT1/cmtt/m/n/12 https : / / mvelectronica . s3 . us-[]east-[]2 .
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--127
+LaTeX Info: Redefining \. on input line 132.
+LaTeX Info: Redefining \% on input line 132.
+pdfTeX warning (ext4): destination with the same identifier (name{page.7}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.132 
+       [7]
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
 []\OT1/cmr/m/n/12 Arduino []$\OT1/cmtt/m/n/12 https : / / components101 . com / sites / default / files /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 129--130
+Underfull \hbox (badness 10000) in paragraph at lines 137--138
 []\OT1/cmr/m/n/12 Raspberry Pi []$\OT1/cmtt/m/n/12 https : / / learn . microsoft . com / en-[]us / windows /
  []
 
-LaTeX Info: Redefining \. on input line 131.
-LaTeX Info: Redefining \% on input line 131.
-pdfTeX warning (ext4): destination with the same identifier (name{page.7}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.131 \bibitem{esp8266_img}
-                            [7]
-Underfull \hbox (badness 10000) in paragraph at lines 132--133
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--141
 []\OT1/cmr/m/n/12 Esp8266 []$\OT1/cmtt/m/n/12 https : / / components101 . com / sites / default / files /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--136
+Underfull \hbox (badness 10000) in paragraph at lines 143--144
 []\OT1/cmr/m/n/12 Esp32 []$\OT1/cmtt/m/n/12 https : / / raw . githubusercontent . com / AchimPieters /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--136
+Underfull \hbox (badness 10000) in paragraph at lines 143--144
 \OT1/cmtt/m/n/12 esp32-[]homekit-[]camera / master / Images / ESP32-[]38 % 20PIN-[]DEVBOARD .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 138--139
+Underfull \hbox (badness 10000) in paragraph at lines 146--147
 []\OT1/cmr/m/n/12 Ejeplo MQTT []$\OT1/cmtt/m/n/12 https : / / mqtt . org / assets / img /
  []
 
 
-Underfull \hbox (badness 1394) in paragraph at lines 141--142
+Underfull \hbox (badness 1394) in paragraph at lines 149--150
 []\OT1/cmr/m/n/12 Ejemplo Zig-bee []$\OT1/cmtt/m/n/12 https : / / csa-[]iot . org / wp-[]content / uploads / 2021 /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 144--145
+Underfull \hbox (badness 10000) in paragraph at lines 152--153
 []\OT1/cmr/m/n/12 Divisor de ten-sion []$\OT1/cmtt/m/n/12 https : / / upload . wikimedia . org / wikipedia /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 144--145
+Underfull \hbox (badness 10000) in paragraph at lines 152--153
 \OT1/cmtt/m/n/12 commons / thumb / 3 / 31 / Impedance _ voltage _ divider . svg /
  []
 
-)
-LaTeX Info: Redefining \. on input line 234.
-LaTeX Info: Redefining \% on input line 234.
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
+[]\OT1/cmr/m/n/12 Sensor zmpt101b []$\OT1/cmtt/m/n/12 https : / / m . media-[]amazon . com / images / I /
+ []
+
+) (./capitulos/apendice.tex
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
 pdfTeX warning (ext4): destination with the same identifier (name{page.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.234 \chapter
-              *{} [8]pdfTeX warning (ext4): destination with the same identifier (name{page.9}) has been already used, duplicate ignored
+l.1 \begin{titlepage}
+                      [8pdfTeX warning (ext4): destination with the same identifier (name{cite.zmpt101b_img}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1 \begin{titlepage}
+                     ]
+Ap\'{e}ndice A.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--10
+
+ []
+
+
+Underfull \hbox (badness 1292) in paragraph at lines 11--12
+[]\OT1/cmr/m/n/12 4. Si con-si-de-ra-se-mos es-te pro-yec-to pa-ra su rea-li-za-ci^^Son co-mo al-go
+ []
+
+
+Underfull \hbox (badness 2865) in paragraph at lines 11--12
+\OT1/cmr/m/n/12 pro-fe-sio-nal, de-be-ria-mos en-ton-ces con-si-de-rar al-gu-nos cos-tes in-di-rec-tos
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--14
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.237 \end{document}
-                     [9
+l.14 
+      [1
 
-] (./proyecto.aux
+
+]
+Underfull \hbox (badness 2173) in paragraph at lines 47--48
+[]\OT1/cmr/m/n/12 6. Pa-ra los com-po-nen-tes elec-tro-ni-cos, con-si-de-ra-mos su pre-cio de
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--48
+
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.57 \end{itemize}
+                   [2]
+Underfull \hbox (badness 10000) in paragraph at lines 84--85
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
+
+ []
+
+LaTeX Info: Redefining \. on input line 99.
+LaTeX Info: Redefining \% on input line 99.
+pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.99 \end{titlepage}
+                     [3])pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.236 \chapter
+              *{} [4
+
+]pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.239 \end{document}
+                     [5] (./proyecto.aux
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
 )
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `proyecto.out' has not changed.
-(rerunfilecheck)             Checksum: B0D98187B64312D0C879867676DACCE3;7245.
+(rerunfilecheck)             Checksum: B8D77ED853ECFC852640C012347D21A4;9662.
  ) 
 Here is how much of TeX's memory you used:
- 25801 strings out of 478287
- 465191 string characters out of 5849288
- 1318506 words of memory out of 5000000
- 42822 multiletter control sequences out of 15000+600000
- 476912 words of font info for 55 fonts, out of 8000000 for 9000
+ 26226 strings out of 478287
+ 472485 string characters out of 5849288
+ 1326401 words of memory out of 5000000
+ 43017 multiletter control sequences out of 15000+600000
+ 477029 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 100i,13n,104p,1097b,2179s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0800.pfb>
-Output written on proyecto.pdf (69 pages, 18852346 bytes).
+ 100i,13n,104p,1105b,2183s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/eurosym/feymr10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0800.pfb>
+Output written on proyecto.pdf (91 pages, 19485585 bytes).
 PDF statistics:
- 1569 PDF objects out of 1728 (max. 8388607)
- 1403 compressed objects within 15 object streams
- 687 named destinations out of 1000 (max. 500000)
- 559 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2006 PDF objects out of 2073 (max. 8388607)
+ 1793 compressed objects within 18 object streams
+ 900 named destinations out of 1000 (max. 500000)
+ 729 words of extra memory for PDF output out of 10000 (max. 10000000)
 
